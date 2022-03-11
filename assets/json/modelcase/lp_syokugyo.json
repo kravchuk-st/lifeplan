@@ -1,0 +1,10 @@
+﻿[
+{"id_syokugyo":"0","st_syokugyo":"(未設定)","no_display":"1"}
+,{"id_syokugyo":"1","st_syokugyo":"会社員","no_display":"2"}
+,{"id_syokugyo":"2","st_syokugyo":"会社役員","no_display":"3"}
+,{"id_syokugyo":"3","st_syokugyo":"公務員","no_display":"4"}
+,{"id_syokugyo":"4","st_syokugyo":"退職・会社員","no_display":"5"}
+,{"id_syokugyo":"5","st_syokugyo":"退職・公務員","no_display":"6"}
+,{"id_syokugyo":"6","st_syokugyo":"自営業","no_display":"7"}
+,{"id_syokugyo":"7","st_syokugyo":"無職","no_display":"8"}
+]

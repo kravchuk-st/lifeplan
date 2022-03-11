@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <link rel="shortcut icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no" />
+    <title>基本情報</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="stylesheet" href="assets/css/update.css"/>
+    <link rel="stylesheet" href="assets/css/blue.css"/>
+
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/app/common.js?ver=20210331"></script>
+		<script src="js/lib/knockout-3.4.0.js"></script>
+		<script src="js/app/appBase.js"></script>
+		<script src="js/db/lifePlanDB.js?ver=20210331"></script>
+		<script src="js/util/util.js"></script>
+		<script src="js/calc/baseCalc.js"></script>
+		<script src="js/calc/calc.js?ver=20210331"></script>
+		<script src="js/calc/logic01.js?ver=20210331"></script>
+		<script src="js/calc/logic02.js?ver=20210331"></script>
+		<script src="js/calc/logic03.js?ver=20210331"></script>
+		<script src="js/calc/logic05.js?ver=20210331"></script>
+		<script src="js/calc/logic04.js?ver=20210331"></script>
+		<script src="js/calc/logic09.js?ver=20210331"></script>
+		<script src="js/calc/logic06.js?ver=20210331"></script>
+		<script src="js/calc/logic07.js?ver=20210331"></script>
+		<script src="js/calc/logic08.js?ver=20210331"></script>
+		<script src="js/app/settingHouse.js?ver=20210331"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <script src="js/update.js"></script>
+  </head>
+  <body>
+    <div class="wrapper" data-bind="css: modelClass">
+      <header class="header" data-bind="css: {'is-open': dispSidemenu}">
+        <div class="header-frame">
+          <div class="header__left">
+            <div class="burger">
+              <button class="burger__btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="burger">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+              </button>
+            </div>
+            <a href="top.html" class="home">
+              <svg class="icon">
+                <use xlink:href="./assets/img/svg/house.svg#house"></use>
+              </svg>
+            </a>
+            <button class="question-btn btn-reset" type="button" data-bind="click: Sidemenu.bind($data, '#modal-20')">
+              <svg class="icon">
+                <use xlink:href="./assets/img/svg/question-fill.svg#question-btn"></use>
+              </svg>
+              使い方
+            </button>
+          </div>
+          <div class="header__center">
+            <h1 class="header__title fw-bold text-white">ライフ<span class="fs-1 fw-normal">＆</span>マネープラン<span class="fw-light">シミュレーション</span></h1>
+          </div>
+          <div class="header__right">
+            <span data-bind="html: simulation1, click: onClick.bind($data, 'goto_simulation', 0)"></span>
+          </div>
+          
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <button class="burger__btn burger__btn_open" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+              </button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="nav__list list-reset">
+                <li class="nav__item" data-bs-dismiss="offcanvas">
+                  <a class="nav__link" data-bind="click: Sidemenu.bind($data, '#modal-10')">
+                    ご利用時の留意事項
+                    <svg class="icon arrow">
+                      <use xlink:href="./assets/img/svg/right.svg#right"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="nav__item" data-bs-dismiss="offcanvas">
+                  <a class="nav__link" data-bind="click: Sidemenu.bind($data, '#modal-11')">
+                    設定
+                    <svg class="icon arrow">
+                      <use xlink:href="./assets/img/svg/right.svg#right"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="navigation">
+        <div class="content-frame">
+          <ul class="grid wrapper-sm">
+            <li class="column">
+							<span data-bind="html: setting_tab1_basic, click: onClick.bind($data, 'setting_tab1', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab2_job, click: onClick.bind($data, 'setting_tab2', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab3_house, click: onClick.bind($data, 'setting_tab3', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab4_education, click: onClick.bind($data, 'setting_tab4', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab5_insurance, click: onClick.bind($data, 'setting_tab5', 0)"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <main class="main" data-bind="visible: true" style="display: none">
+        <div class="content-frame wrapper-sm">
+
+          <div class="content-panel grid">
+            <div class="column">
+
+              <div class="table">
+								<div class="caption">
+                  住宅購入プラン
+                </div>
+                <table>
+                  <tr>
+                    <th class="required">
+                      <div>
+                        購入時期
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="text: house1_txt_age_jyutaku"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-1', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="required">
+                      <div>
+                        購入地域
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="text: house1_txt_id_prefecture"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-1', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="required">
+                      <div>
+                        購入予算
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="text: house1_txt_sm_jyutakuyosan"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-1', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="required">
+											<div>
+												諸費用
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="text: house1_txt_sm_jyutakukeihi"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-1', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="required">
+											<div>
+												ローン利用
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="text: house1_txt_id_jyutakuloan"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-1', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+							<div class="notes">
+								<ul class="list">
+									<li>
+										<span data-bind="text: setting_house_txt_comment_1"></span>
+									</li>
+									<li>
+										<span data-bind="text: setting_house_txt_comment_2"></span>
+									</li>
+								</ul>
+							</div>
+
+            </div>
+            <div class="column">
+
+              <!-- table start -->
+              <div class="table" data-bind="style: {visibility: house3_row_jyutakuloan}">
+                <div class="caption">
+                  住宅ローン
+                </div>
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        借入金額
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="text: house3_txt_sm_kariire"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <div>
+                        返済期間
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="text: house3_txt_no_hensai"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <div>
+                        借入金利
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="html: house3_txt_kariirekinri"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <div>
+                        賞与時加算
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="text: house3_txt_syouyo"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <div>
+                        繰上返済
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="html: house3_txt_kuriage"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <div>
+                        団体信用生命保険
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="text: house3_txt_dansin"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!-- table end -->
+							<div class="button-wrapper">
+                <a class="button-blank housing-detail" data-bind="click: onClick.bind($data, '#modal-3', 0)">詳細</a>
+              </div>
+            </div>
+          </div><!-- .content-panel .grid end-->
+
+        </div>
+      </main>
+
+			<div id='modal-1' class="modal">
+				<div class="modal-frame cost-monthly">
+					<div class="modal-title">
+						住宅購入プラン
+					</div>
+					<div class="modal-content is-scroll">
+						<div class="modal-panel">
+
+							<div class="table">
+								<table>
+									<tr>
+										<th>
+											<div>
+												購入時期
+											</div>
+										</th>
+										<td>
+											<div>
+												<select class="pulldown" data-bind="options: house1_spn_age_jyutaku,
+																													  value: house1_spn_age_jyutaku_v,
+																													  event:{change: onSelect.bind($data, 'house1_spn_age_jyutaku', 1, event)}"></select>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												購入地域
+											</div>
+										</th>
+										<td>
+											<div>
+												<select class="pulldown" data-bind="options: house1_spn_prefecture,
+																													  value: house1_spn_prefecture_v,
+																													  event:{change: onSelect.bind($data, 'house1_spn_prefecture', 1, event)}"></select>
+											</div>
+											<div>
+												<span class="radiolist">
+													<label><input type="radio" name="type" value="戸建て" data-bind="checked: house1_btn_jyutakutype_1,
+																																													  event:{change: onClick.bind($data, 'house1_btn_jyutakutype_1', 1)}" /><span>戸建て</span>
+													</label>
+													<label><input type="radio" name="type" value="マンション" data-bind="checked: house1_btn_jyutakutype_2,
+																																													  event:{change: onClick.bind($data, 'house1_btn_jyutakutype_2', 1)}" /><span>マンション</span>
+													</label>
+												</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												購入予算
+											</div>
+										</th>
+										<td>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: house1_edit_jyutakuyosan,
+																																										 event:{change: onCalcFinish.bind($data, 'house1_edit_jyutakuyosan', 1)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												諸費用
+											</div>
+										</th>
+										<td>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: house1_edit_jyutakukeihi,
+																																										 event:{change: onCalcFinish.bind($data, 'house1_edit_jyutakukeihi', 1)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												ローン利用
+											</div>
+										</th>
+										<td>
+											<div>
+												<span class="radiolist">
+													<label><input type="radio" name="loan" value="あり" data-bind="checked: house1_btn_jyutakuloan_1,
+																																													  event:{change: onClick.bind($data, 'house1_btn_jyutakuloan_1', 1)}" /><span>あり</span>
+													</label>
+													<label><input type="radio" name="loan" value="なし" data-bind="checked: house1_btn_jyutakuloan_2,
+																																													  event:{change: onClick.bind($data, 'house1_btn_jyutakuloan_2', 1)}" /><span>なし</span>
+													</label>
+												</span>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="button-wrapper">
+								<a class="button-modal" data-bind="click: onClickClose.bind($data, 'popup_cancel', 1)">変更せずに戻る</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 1)">設定を変更する</a>
+							</div>
+
+						</div>
+					</div>
+					<a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 1)">閉じる</a>
+				</div>
+			</div>
+
+			<div id="modal-2" class="modal">
+				<div class="modal-frame cost-monthly">
+					<div class="modal-title">
+						住宅ローン
+					</div>
+					<div class="modal-content is-scroll">
+						<div class="modal-panel">
+
+							<div class="table">
+								<table>
+									<tr>
+										<th>
+											<div>
+												借入金額
+											</div>
+										</th>
+										<td>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: house3_edit_sm_kariire,
+																																										 event:{change: onCalcFinish.bind($data, 'house3_edit_sm_kariire', 2)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												返済期間
+											</div>
+										</th>
+										<td>
+											<div>
+												<div>
+													<select class="pulldown" data-bind="options: house3_spn_hensai,
+																													  value: house3_spn_hensai_v,
+																													  event:{change: onSelect.bind($data, 'house3_spn_hensai', 2, event)}"></select>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												借入金利①
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<span class="font-large">当初</span>
+												<input type="text" class="textarea number" data-bind="value: house3_edit_kariirekinri1,
+																																										 event:{change: onCalcFinish.bind($data, 'house3_edit_kariirekinri1', 2)}" />
+                        <span class="font-large">%</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												借入金利②
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<select class="pulldown" data-bind="options: house3_spn_kariirekinri2,
+																													  value: house3_spn_kariirekinri2_v,
+																													  event:{change: onSelect.bind($data, 'house3_spn_kariirekinri2', 2, event)}"></select>
+												<input type="text" class="textarea number" data-bind="value: house3_edit_kariirekinri2,
+																																										 event:{change: onCalcFinish.bind($data, 'house3_edit_kariirekinri2', 2)}" />
+                        <span class="font-large">%</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												借入金利③
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<select class="pulldown" data-bind="options: house3_spn_kariirekinri3,
+																													  value: house3_spn_kariirekinri3_v,
+																													  event:{change: onSelect.bind($data, 'house3_spn_kariirekinri3', 2, event)}"></select>
+												<input type="text" class="textarea number" data-bind="value: house3_edit_kariirekinri3,
+																																										 event:{change: onCalcFinish.bind($data, 'house3_edit_kariirekinri3', 2)}" />
+                        <span class="font-large">%</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												賞与時加算
+											</div>
+										</th>
+										<td>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: house3_edit_sm_syouyo,
+																																										 event:{change: onCalcFinish.bind($data, 'house3_edit_sm_syouyo', 2)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												繰上返済
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<select class="pulldown" data-bind="options: house3_spn_kuriage,
+																													  value: house3_spn_kuriage_v,
+																													  event:{change: onSelect.bind($data, 'house3_spn_kuriage', 2, event)}"></select>
+												<input type="text" class="textarea middle number" data-bind="value: house3_edit_kuriage,
+																																										 event:{change: onCalcFinish.bind($data, 'house3_edit_kuriage', 2)}" />
+                        <span class="font-large">円</span>
+											</div>
+											<div>
+												<span class="radiolist">
+													<label><input type="radio" name="kuriage" value="返済軽減" data-bind="checked: house3_btn_kuriage_1,
+																																													  event:{change: onClick.bind($data, 'house3_btn_kuriage_1', 2)}" /><span>返済軽減</span>
+													</label>
+													<label><input type="radio" name="kuriage" value="期間短縮" data-bind="checked: house3_btn_kuriage_2,
+																																													  event:{change: onClick.bind($data, 'house3_btn_kuriage_2', 2)}" /><span>期間短縮</span>
+													</label>
+												</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												団体信用生命保険
+											</div>
+										</th>
+										<td>
+											<div>
+												<span class="radiolist">
+													<label><input type="radio" name="dansin" value="加入" data-bind="checked: house3_btn_dansin_1,
+																																													  event:{change: onClick.bind($data, 'house3_btn_dansin_1', 2)}" /><span>加入</span>
+													</label>
+													<label><input type="radio" name="dansin" value="未加入" data-bind="checked: house3_btn_dansin_2,
+																																													  event:{change: onClick.bind($data, 'house3_btn_dansin_2', 2)}" /><span>未加入</span>
+													</label>
+												</span>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="button-wrapper">
+								<a class="button-modal" data-bind="click: onClickClose.bind($data, 'popup_cancel', 2)">変更せずに戻る</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 2)">設定を変更する</a>
+							</div>
+
+						</div>
+					</div>
+					<a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 2)">閉じる</a>
+				</div>
+			</div>
+
+			<div id="modal-3" class="modal">
+				<div class="modal-frame">
+					<div class="modal-title">
+						住宅ローン返済計画詳細
+					</div>
+					<div class="modal-content is-scroll">
+						<div class="modal-panel">
+
+							<div class="table">
+								<table>
+									<tr>
+										<th>
+											<div>
+												総予算
+											</div>
+										</th>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_totalyosan"></span>
+											</div>
+										</td>
+										<th>
+											<div>
+												自己資金
+											</div>
+										</th>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_jikosikin"></span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												借入金
+											</div>
+										</th>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_sm_kariire"></span>
+											</div>
+										</td>
+										<th>
+											<div>
+												返済総額
+											</div>
+										</th>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_total_hensai"></span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												完済年齢
+											</div>
+										</th>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_age_kansai"></span>
+											</div>
+										</td>
+										<th>
+											<div>
+												繰上返済
+											</div>
+										</th>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_kuriage"></span>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="table">
+								<table>
+									<tr>
+										<th>
+											<div>
+												適用期間
+											</div>
+										</th>
+										<th>
+											<div>
+												借入金利
+											</div>
+										</th>
+										<th>
+											<div>
+												年間返済額<br>（年収比）
+											</div>
+										</th>
+										<th>
+											<div>
+												月額返済額
+											</div>
+										</th>
+										<th>
+											<div>
+												賞与時加算
+											</div>
+										</th>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												当初〜
+											</div>
+										</th>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_ra_kariirekinri1"></span>
+											</div>
+										</td>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_year_hensai1"></span>
+											</div>
+										</td>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_month_hensai1"></span>
+											</div>
+										</td>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_sm_syouyo1"></span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div data-bind="text: house_detail_txt_title2"></div>
+										</th>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_ra_kariirekinri2"></span>
+											</div>
+										</td>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_year_hensai2"></span>
+											</div>
+										</td>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_month_hensai2"></span>
+											</div>
+										</td>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_sm_syouyo2"></span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div data-bind="text: house_detail_txt_title3"></div>
+										</th>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_ra_kariirekinri3"></span>
+											</div>
+										</td>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_year_hensai3"></span>
+											</div>
+										</td>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_month_hensai3"></span>
+											</div>
+										</td>
+										<td>
+											<div class="right">
+												<span data-bind="text: house_detail_txt_sm_syouyo3"></span>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="right">
+								<span data-bind="text: popup_house_detail_txt_comment"></span>
+							</div>
+
+						</div>
+					</div>
+					<a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 3)">閉じる</a>
+				</div>
+			</div>
+
+			<div id="modal-10" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            ご利用に際しての留意事項
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+
+				<div class="grid">
+					<div class="column" data-bind="foreach: screenMessageL">
+						<div class="font-xlarge" data-bind="if: st_title1">
+							<p>
+								<b class="dynamic" data-bind="text: st_title1">ご利用に際して</b>
+							</p>
+						</div>
+						<div data-bind="if: st_title2">
+							<p data-bind="text: st_title2">
+							</p>
+						</div>
+						<div>
+							<p data-bind="text: st_message">
+							</p>
+						</div>
+					</div>
+					<div class="column" data-bind="foreach: screenMessageR">
+						<div class="font-xlarge" data-bind="if: st_title1">
+							<p>
+								<b class="dynamic" data-bind="text: st_title1">ご利用に際して</b>
+							</p>
+						</div>
+						<div data-bind="if: st_title2">
+							<p data-bind="text: st_title2">
+							</p>
+						</div>
+						<div>
+							<p data-bind="text: st_message">
+							</p>
+						</div>
+					</div>
+				</div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-11" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            設定
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+
+              <div class="table">
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        カンパニーID
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+												<span data-bind="text: id_company"></span>
+											</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="button-wrapper fixed">
+                <a class="button-modal" onclick="LMPS.closeModal();">戻る</a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-20" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            使い方
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+              
+              <div class="grid">
+                <div class="column">
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル1</b>
+                    </p>
+                  </div>
+                  <div data-bind="if: st_title2">
+                    <p data-bind="text: st_title2">
+                    </p>
+                  </div>
+                  <div>
+                    <p data-bind="text: st_message">
+                      この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この 文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章 はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+                    </p>
+                  </div>
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル2</b>
+                    </p>
+                  </div>
+                  <div data-bind="if: st_title2">
+                    <p data-bind="text: st_title2">
+                    </p>
+                  </div>
+                  <div>
+                    <p data-bind="text: st_message">
+                      この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この 文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章 はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダ ミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーで す。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文 字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の 大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大き さ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、 量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、 字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字 間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、 行間等を確認するために入れています。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+    </div><!-- .wrapper end -->
+  </body>
+</html>
