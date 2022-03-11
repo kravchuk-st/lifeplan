@@ -1,0 +1,13 @@
+a.button-icon.edit.is-on,
+span.button-icon.edit.is-on,
+button.button-icon.edit.is-on,
+input.button-icon.edit.is-on {
+  background-position: 50% -62px;
+}
+
+.total-top .menu-lists.owl-carousel .owl-controls .owl-prev,
+.total-top .menu-lists.owl-carousel .owl-controls .owl-next {
+	border-radius: 98px;
+	height: 98px;
+	width: 98px;
+}

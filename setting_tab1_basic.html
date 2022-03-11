@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <link rel="shortcut icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no" />
+    <title>基本情報</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+		<link rel="stylesheet" href="assets/css/update.css"/>
+    <link rel="stylesheet" href="assets/css/blue.css"/>
+
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/app/common.js?ver=20210331"></script>
+		<script src="js/lib/knockout-3.4.0.js"></script>
+		<script src="js/app/appBase.js"></script>
+		<script src="js/db/lifePlanDB.js?ver=20210331"></script>
+		<script src="js/util/util.js"></script>
+		<script src="js/calc/baseCalc.js"></script>
+		<script src="js/calc/calc.js?ver=20210331"></script>
+		<script src="js/calc/logic01.js?ver=20210331"></script>
+		<script src="js/calc/logic02.js?ver=20210331"></script>
+		<script src="js/calc/logic03.js?ver=20210331"></script>
+		<script src="js/calc/logic05.js?ver=20210331"></script>
+		<script src="js/calc/logic04.js?ver=20210331"></script>
+		<script src="js/calc/logic09.js?ver=20210331"></script>
+		<script src="js/calc/logic06.js?ver=20210331"></script>
+		<script src="js/calc/logic07.js?ver=20210331"></script>
+		<script src="js/calc/logic08.js?ver=20210331"></script>
+		<script src="js/app/settingBasic.js?ver=20210331"></script>
+		<script src="js/app/inputValueCheck.js"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <script src="js/update.js"></script>
+  </head>
+  <body>
+    <div class="wrapper" data-bind="css: modelClass">
+      <header class="header" data-bind="css: {'is-open': dispSidemenu}">
+				<div class="header-frame">
+          <div class="header__left">
+            <div class="burger">
+              <button class="burger__btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="burger">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+              </button>
+            </div>
+            <a href="top.html" class="home">
+              <svg class="icon">
+                <use xlink:href="./assets/img/svg/house.svg#house"></use>
+              </svg>
+            </a>
+            <button class="question-btn btn-reset" type="button" data-bind="click: Sidemenu.bind($data, '#modal-20')">
+              <svg class="icon">
+                <use xlink:href="./assets/img/svg/question-fill.svg#question-btn"></use>
+              </svg>
+              使い方
+            </button>
+          </div>
+          <div class="header__center">
+            <h1 class="header__title fw-bold text-white">ライフ<span class="fs-1 fw-normal">＆</span>マネープラン<span class="fw-light">シミュレーション</span></h1>
+          </div>
+          <div class="header__right">
+            <span data-bind="html: simulation1, click: onClick.bind($data, 'goto_simulation', 0)"></span>
+          </div>
+          
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <button class="burger__btn burger__btn_open" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+              </button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="nav__list list-reset">
+                <li class="nav__item" data-bs-dismiss="offcanvas">
+                  <a class="nav__link" data-bind="click: Sidemenu.bind($data, '#modal-10')">
+                    ご利用時の留意事項
+                    <svg class="icon arrow">
+                      <use xlink:href="./assets/img/svg/right.svg#right"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="nav__item" data-bs-dismiss="offcanvas">
+                  <a class="nav__link" data-bind="click: Sidemenu.bind($data, '#modal-11')">
+                    設定
+                    <svg class="icon arrow">
+                      <use xlink:href="./assets/img/svg/right.svg#right"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="navigation">
+        <div class="content-frame">
+          <ul class="grid wrapper-sm">
+            <li class="column">
+							<span data-bind="html: setting_tab1_basic, click: onClick.bind($data, 'setting_tab1', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab2_job, click: onClick.bind($data, 'setting_tab2', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab3_house, click: onClick.bind($data, 'setting_tab3', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab4_education, click: onClick.bind($data, 'setting_tab4', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab5_insurance, click: onClick.bind($data, 'setting_tab5', 0)"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <main class="main" data-bind="visible: true" style="display: none">
+        <div class="content-frame wrapper-sm">
+
+          <div class="content-panel grid">
+            <div class="column">
+
+              <div class="table">
+                <table>
+                  <tr>
+                    <th class="required">
+                      <div>
+                        性別
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="text: edit_txt_sex"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-1', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="required">
+                      <div>
+                        生年月日
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="text: edit_txt_birth"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-1', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="required">
+                      <div>
+                        配偶者
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+                        <span data-bind="text: edit_txt_haiumu"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-1', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="required">
+                      <div data-bind="html: title_txt_birth_hai">
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="text: edit_txt_birth_hai"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-1', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- tab start -->
+              <div class="tab js-tab">
+                <div class="tab-button-wrap">
+									<a class="tab-button" data-tabname="tab1" data-bind="click: onClick.bind($data, 'tab_basic2_1', 0)">ご本人様</a>
+									<a class="tab-button" data-tabname="tab2" data-bind="click: onClick.bind($data, 'tab_basic2_2', 0),
+																																			 visible: tab_basic2_2">配偶者様</a>
+                </div>
+                <div class="tab-content-wrap">
+                  <!-- tab1 start -->
+                  <div class="tab-content" data-tabcontent="tab1">
+                    <div class="table">
+                      <table>
+                        <tr>
+                          <th class="required">
+                            <div>
+                              職業
+                            </div>
+                          </th>
+                          <td>
+                            <div class="add-button">
+															<span data-bind="text: edit_txt_syokugyo"></span>
+															<a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr data-bind="visible: basic2_syugyo_row">
+                          <th class="required">
+                            <div>
+                              就業年月
+                            </div>
+                          </th>
+                          <td>
+                            <div class="add-button">
+															<span data-bind="text: edit_txt_syugyo"></span>
+                              <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr data-bind="visible: basic2_taisyoku_row">
+                          <th class="required">
+                            <div>
+                              退職年齢
+                            </div>
+                          </th>
+                          <td>
+                            <div class="add-button">
+															<span data-bind="text: edit_txt_taisyoku"></span>
+                              <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- // tab1 end -->
+                  <!-- tab2 start -->
+                  <div class="tab-content" data-tabcontent="tab2">
+                    <div class="table">
+                      <table>
+                        <tr>
+                          <th class="required">
+                            <div>
+                              職業
+                            </div>
+                          </th>
+                          <td>
+                            <div class="add-button">
+															<span data-bind="text: edit_txt_syokugyo"></span>
+                              <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr data-bind="visible: basic2_syugyo_row">
+                          <th class="required">
+                            <div>
+                              就業年月
+                            </div>
+                          </th>
+                          <td>
+                            <div class="add-button">
+															<span data-bind="text: edit_txt_syugyo"></span>
+                              <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr data-bind="visible: basic2_taisyoku_row">
+                          <th class="required">
+                            <div>
+                              退職年齢
+                            </div>
+                          </th>
+                          <td>
+                            <div class="add-button">
+															<span data-bind="text: edit_txt_taisyoku"></span>
+                              <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-2', 0)">編集</a>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- // tab2 end -->
+                </div>
+              </div>
+              <!-- tab end -->
+
+              <ul class="list font-xsmall">
+                <li>
+                  再就職・再雇用された方は退職を選択してください
+                </li>
+                <li>
+                  タブをタップすると情報の切り替えができます
+                </li>
+              </ul>
+
+            </div>
+            <div class="column">
+
+              <!-- table start -->
+              <div class="table">
+                <div class="caption">
+                  住まい
+                </div>
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        現況
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="text: basic3_txt_lives"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-3', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr data-bind="visible: basic3_lives_yotei_row">
+                    <th>
+                      <div>
+                        将来
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="text: basic3_txt_lives_yotei"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-3', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr data-bind="visible: basic3_sm_rent_row">
+                    <th>
+                      <div>
+                        現在の家賃
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="text: basic3_txt_rent"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-3', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr data-bind="visible: basic3_age_jyutaku_row">
+                    <th>
+                      <div>
+                        購入時期
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="text: basic3_txt_age_jyutaku"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-3', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr data-bind="visible: basic3_sm_kariire_row">
+                    <th>
+                      <div>
+                        住宅ローン
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="html: basic3_txt_sm_kariire"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-3', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!-- table end -->
+
+              <!-- table start -->
+              <div class="table">
+                <div class="caption">
+                  保有金融資金
+                </div>
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        金融資産残高
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="html: basic4_txt_sm_assets"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-4', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <div>
+                        毎月の貯蓄・<br />積立額
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="html: basic4_txt_mon_saving"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-4', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!-- table end -->
+
+              <!-- table start -->
+              <div class="table add-dummycaption">
+                <table>
+                  <tr data-bind="visible: row1">
+                    <th>
+                      <div>
+                        基本生活費
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="text: kihonn_seikatu"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-5', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr data-bind="visible: row2">
+                    <th>
+                      <div>
+                        老後生活費
+                      </div>
+                    </th>
+                    <td>
+                      <div class="add-button">
+												<span data-bind="text: taisyoku_seikatu"></span>
+                        <a class="button-icon edit" data-bind="click: onClick.bind($data, '#modal-5', 0)">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!-- table end -->
+
+            </div>
+          </div><!-- .content-panel .grid end-->
+
+        </div>
+      </main>
+
+			<div id="modal-1" class="modal">
+				<div class="modal-frame cost-monthly">
+					<div class="modal-title">
+						基本情報
+					</div>
+					<div class="modal-content is-scroll">
+						<div class="modal-panel">
+
+							<div class="table">
+								<table>
+									<tr>
+										<th>
+											<div>
+												性別
+											</div>
+										</th>
+										<td>
+											<div>
+												<span class="radiolist">
+													<label><input type="radio" name="sex_hon" value="男性" data-bind="checked: btn_sex_1,
+																																													  event:{change: onClick.bind($data, 'btn_sex_1', 1)}" /><span>男性</span></label>
+													<label><input type="radio" name="sex_hon" value="女性" data-bind="checked: btn_sex_2,
+																																													  event:{change: onClick.bind($data, 'btn_sex_2', 1)}" /><span>女性</span></label>
+												</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th class="kihonHon">
+											<div>
+												生年月日
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<select class="pulldown" data-bind="options: spn_birth_hon_yyyy,
+																													  value: spn_birth_hon_yyyy_v,
+																													  event:{change: onSelect.bind($data, 'spn_birth_hon_yyyy', 1, event)}"></select>
+												<select class="pulldown" data-bind="options: spn_birth_hon_mm,
+																													  value: spn_birth_hon_mm_v,
+																													  event:{change: onSelect.bind($data, 'spn_birth_hon_mm', 1, event)}"></select>
+												<select class="pulldown" data-bind="options: spn_birth_hon_dd,
+																													  value: spn_birth_hon_dd_v,
+																													  event:{change: onSelect.bind($data, 'spn_birth_hon_dd', 1, event)}"></select>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="table">
+								<table>
+									<tr>
+										<th class="kihonHai">
+											<div>
+												配偶者
+											</div>
+										</th>
+										<td>
+											<div>
+												<span class="radiolist">
+													<label><input type="radio" name="haiumu" value="あり" data-bind="checked: btn_haiumu_1,
+																																													 event:{change: onClick.bind($data, 'btn_haiumu_1', 1)}" /><span>あり</span></label>
+													<label><input type="radio" name="haiumu" value="なし" data-bind="checked: btn_haiumu_2,
+																																													 event:{change: onClick.bind($data, 'btn_haiumu_2', 1)}" /><span>なし</span></label>
+												</span>
+											</div>
+										</td>
+									</tr>
+									<tr data-bind="visible: row_kekkon_age">
+										<th class="kihonHai">
+											<div>
+												結婚予定
+											</div>
+										</th>
+										<td>
+											<div>
+												<select class="pulldown" data-bind="options: spn_kekkon_age,
+																													  value: spn_kekkon_age_v,
+																													  event:{change: onSelect.bind($data, 'spn_kekkon_age', 1, event)}"></select>
+											</div>
+										</td>
+									</tr>
+									<tr data-bind="visible: row_birth_hai">
+										<th class="kihonHai">
+											<div>
+												生年月日（配偶者）
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<select class="pulldown" data-bind="options: spn_birth_hai_yyyy,
+																													  value: spn_birth_hai_yyyy_v,
+																													  event:{change: onSelect.bind($data, 'spn_birth_hai_yyyy', 1, event)}"></select>
+												<select class="pulldown" data-bind="options: spn_birth_hai_mm,
+																													  value: spn_birth_hai_mm_v,
+																													  event:{change: onSelect.bind($data, 'spn_birth_hai_mm', 1, event)}"></select>
+												<select class="pulldown" data-bind="options: spn_birth_hai_dd,
+																													  value: spn_birth_hai_dd_v,
+																													  event:{change: onSelect.bind($data, 'spn_birth_hai_dd', 1, event)}"></select>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="button-wrapper">
+								<a class="button-modal" data-bind="click: onClickClose.bind($data, 'popup_cancel', 1)">変更せずに戻る</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 1)">設定を変更する</a>
+							</div>
+
+						</div>
+					</div>
+					<a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 1)">閉じる</a>
+				</div>
+			</div>
+
+			<div id="modal-2" class="modal">
+				<div class="modal-frame cost-monthly">
+					<div class="modal-title" data-bind="text: popup_basic2_title">
+						基本情報／ご本人様の職業
+					</div>
+					<div class="modal-content is-scroll">
+						<div class="modal-panel">
+
+							<div class="table">
+								<table>
+									<tr>
+										<th>
+											<div>
+												職業
+											</div>
+										</th>
+										<td>
+											<div>
+												<select class="pulldown" data-bind="options: spn_syokugyo,
+																						 value: spn_syokugyo_v,
+																						 event:{change: onSelect.bind($data, 'spn_syokugyo', 2, event)}">
+												</select>
+											</div>
+										</td>
+									</tr>
+									<tr data-bind="visible: popup_basic2_syugyo_row">
+										<th>
+											<div>
+												就業年月
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<select class="pulldown" data-bind="options: spn_syugyo_yyyy,
+																						 value: spn_syugyo_yyyy_v,
+																						 event:{change: onSelect.bind($data, 'spn_syugyo_yyyy', 2, event)}">
+												</select>
+												<select class="pulldown" data-bind="options: spn_syugyo_mm,
+																						 value: spn_syugyo_mm_v,
+																						 event:{change: onSelect.bind($data, 'spn_syugyo_mm', 2, event)}">
+												</select>
+											</div>
+										</td>
+									</tr>
+									<tr data-bind="visible: popup_basic2_taisyoku_row">
+										<th>
+											<div>
+												退職年齢
+											</div>
+										</th>
+										<td>
+											<div>
+												<select class="pulldown" data-bind="options: spn_taisyoku_age,
+																						 value: spn_taisyoku_age_v,
+																						 event:{change: onSelect.bind($data, 'spn_taisyoku_age', 2, event)}">
+												</select>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="button-wrapper">
+								<a class="button-modal" data-bind="click: onClickClose.bind($data, 'popup_cancel', 2)">変更せずに戻る</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 2)">設定を変更する</a>
+							</div>
+
+						</div>
+					</div>
+					<a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 2)">閉じる</a>
+				</div>
+			</div>
+
+			<div id="modal-3" class="modal">
+				<div class="modal-frame cost-monthly">
+					<div class="modal-title">
+						基本情報／住まい
+					</div>
+					<div class="modal-content is-scroll">
+						<div class="modal-panel">
+
+							<div class="table">
+								<table>
+									<tr>
+										<th>
+											<div>
+												現況
+											</div>
+										</th>
+										<td>
+											<div>
+												<span class="radiolist">
+													<label><input type="radio" name="lives" value="賃貸" data-bind="checked: basic3_btn_lives_1,
+																																													  event:{change: onClick.bind($data, 'basic3_btn_lives_1', 3)}" /><span>賃貸</span>
+													</label>
+													<label><input type="radio" name="lives" value="自宅" data-bind="checked: basic3_btn_lives_2,
+																																													  event:{change: onClick.bind($data, 'basic3_btn_lives_2', 3)}" /><span>自宅</span>
+													</label>
+												</span>
+											</div>
+										</td>
+									</tr>
+									<tr data-bind="visible: basic3_row_lives_yotei">
+										<th>
+											<div>
+												将来
+											</div>
+										</th>
+										<td>
+											<div>
+												<span class="radiolist">
+													<label><input type="radio" name="yotei" value="購入計画あり" data-bind="checked: basic3_btn_lives_yotei_1,
+																																													  event:{change: onClick.bind($data, 'basic3_btn_lives_yotei_1', 3)}" /><span>購入計画あり</span>
+													</label>
+													<label><input type="radio" name="yotei" value="購入計画なし" data-bind="checked: basic3_btn_lives_yotei_2,
+																																													  event:{change: onClick.bind($data, 'basic3_btn_lives_yotei_2', 3)}" /><span>購入計画なし</span>
+													</label>
+												</span>
+											</div>
+										</td>
+									</tr>
+									<tr data-bind="visible: basic3_row_sm_rent">
+										<th>
+											<div>
+												現在の家賃
+											</div>
+										</th>
+										<td>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: m_basic3_txt_rent,
+																																										 event:{change: onCalcFinish.bind($data, 'm_basic3_txt_rent', 3)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+									<tr data-bind="visible: basic3_row_age_jyutaku">
+										<th>
+											<div>
+												購入時期
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<select class="pulldown" data-bind="options: basic3_spn_age_jyutaku,
+																													  value: basic3_spn_age_jyutaku_v,
+																													  event:{change: onSelect.bind($data, 'basic3_spn_age_jyutaku', 3, event)}"></select>
+											</div>
+											<div class="nowrap">
+												<span class="radiolist">
+													<label><input type="radio" name="loan" value="ローン残あり" data-bind="checked: basic3_check_jyutakuloan_1,
+																																													  event:{change: onClick.bind($data, 'basic3_check_jyutakuloan_1', 3)}" /><span>ローン残あり</span>
+													</label>
+													<label><input type="radio" name="loan" value="ローン残なし" data-bind="checked: basic3_check_jyutakuloan_2,
+																																													  event:{change: onClick.bind($data, 'basic3_check_jyutakuloan_2', 3)}" /><span>ローン残なし</span>
+													</label>
+												</span>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="table" data-bind="visible: basic3_row_sm_kariire">
+								<table>
+									<tr>
+										<th>
+											<div>
+												借入金額
+											</div>
+										</th>
+										<td>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: basic3_txt_kariire,
+																																										 event:{change: onCalcFinish.bind($data, 'basic3_txt_kariire', 3)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												返済期間
+											</div>
+										</th>
+										<td>
+											<div>
+												<select class="pulldown" data-bind="options: basic3_spn_hensai,
+																													  value: basic3_spn_hensai_v,
+																													  event:{change: onSelect.bind($data, 'basic3_spn_hensai', 3, event)}"></select>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												借入金利
+											</div>
+										</th>
+										<td>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: basic3_txt_kariirekinri,
+																																										 event:{change: onCalcFinish.bind($data, 'basic3_txt_kariirekinri', 3)}" />
+                        <span class="font-large">%</span>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="button-wrapper">
+								<a class="button-modal" data-bind="click: onClickClose.bind($data, 'popup_cancel', 3)">変更せずに戻る</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 3)">設定を変更する</a>
+							</div>
+
+						</div>
+					</div>
+					<a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 3)">閉じる</a>
+				</div>
+			</div>
+
+			<div id="modal-4" class="modal">
+				<div class="modal-frame cost-monthly">
+					<div class="modal-title">
+						基本情報／保有金融資産
+					</div>
+					<div class="modal-content is-scroll">
+						<div class="modal-panel">
+
+							<div class="table">
+								<table>
+									<tr>
+										<th>
+											<div>
+												金融資産残高
+											</div>
+										</th>
+										<td>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: basic4_edit_sm_assets,
+																																										 event:{change: onCalcFinish.bind($data, 'basic4_edit_sm_assets', 4)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												毎月の貯蓄・積立額1
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<select class="pulldown" data-bind="options: basic4_spn_saving1_from,
+																													  value: basic4_spn_saving1_from_v,
+																													  event:{change: onSelect.bind($data, 'basic4_spn_saving1_from', 4, event)}"></select>
+												<span class="font-xlarge"> 〜 </span>
+												<select class="pulldown" data-bind="options: basic4_spn_saving1_to,
+																													  value: basic4_spn_saving1_to_v,
+																													  event:{change: onSelect.bind($data, 'basic4_spn_saving1_to', 4, event)}"></select>
+											</div>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: basic4_edit_saving1,
+																																										 event:{change: onCalcFinish.bind($data, 'basic4_edit_saving1', 4)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<div>
+												毎月の貯蓄・積立額2
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<select class="pulldown" data-bind="options: basic4_spn_saving2_from,
+																													  value: basic4_spn_saving2_from_v,
+																													  event:{change: onSelect.bind($data, 'basic4_spn_saving2_from', 4, event)}"></select>
+												<span class="font-xlarge"> 〜 </span>
+												<select class="pulldown" data-bind="options: basic4_spn_saving2_to,
+																													  value: basic4_spn_saving2_to_v,
+																													  event:{change: onSelect.bind($data, 'basic4_spn_saving2_to', 4, event)}"></select>
+											</div>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: basic4_edit_saving2,
+																																										 event:{change: onCalcFinish.bind($data, 'basic4_edit_saving2', 4)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="button-wrapper">
+								<a class="button-modal" data-bind="click: onClickClose.bind($data, 'popup_cancel', 4)">変更せずに戻る</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 4)">設定を変更する</a>
+							</div>
+
+						</div>
+					</div>
+					<a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 4)">閉じる</a>
+				</div>
+			</div>
+
+			<div id="modal-5" class="modal">
+				<div class="modal-frame cost-monthly">
+					<div class="modal-title">
+						基本生活費・老後生活費
+					</div>
+					<div class="modal-content is-scroll">
+						<div class="modal-panel">
+
+							<div class="table">
+								<table>
+									<tr data-bind="visible: row1">
+										<th>
+											<div>
+												基本生活費
+											</div>
+										</th>
+										<td>
+											<div>
+												<input type="text" class="textarea middle number" data-bind="value: base_edit_income1,
+																																										 event:{change: onCalcFinish.bind($data, 'base_edit_income1', 5)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+									<tr data-bind="visible: row2">
+										<th>
+											<div>
+												老後生活費
+											</div>
+										</th>
+										<td>
+											<div class="nowrap">
+												<input type="text" class="textarea middle number" data-bind="value: base_edit_income2,
+																																										 event:{change: onCalcFinish.bind($data, 'base_edit_income2', 5)}" />
+                        <span class="font-large">円</span>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="button-wrapper">
+								<a class="button-modal" data-bind="click: onClickClose.bind($data, 'popup_cancel', 5)">変更せずに戻る</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 5)">設定を変更する</a>
+							</div>
+
+						</div>
+					</div>
+					<a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 5)">閉じる</a>
+				</div>
+			</div>
+
+			<div id="modal-10" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            ご利用に際しての留意事項
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+
+				<div class="grid">
+					<div class="column" data-bind="foreach: screenMessageL">
+						<div class="font-xlarge" data-bind="if: st_title1">
+							<p>
+								<b class="dynamic" data-bind="text: st_title1">ご利用に際して</b>
+							</p>
+						</div>
+						<div data-bind="if: st_title2">
+							<p data-bind="text: st_title2">
+							</p>
+						</div>
+						<div>
+							<p data-bind="text: st_message">
+							</p>
+						</div>
+					</div>
+					<div class="column" data-bind="foreach: screenMessageR">
+						<div class="font-xlarge" data-bind="if: st_title1">
+							<p>
+								<b class="dynamic" data-bind="text: st_title1">ご利用に際して</b>
+							</p>
+						</div>
+						<div data-bind="if: st_title2">
+							<p data-bind="text: st_title2">
+							</p>
+						</div>
+						<div>
+							<p data-bind="text: st_message">
+							</p>
+						</div>
+					</div>
+				</div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-11" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            設定
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+
+              <div class="table">
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        カンパニーID
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+												<span data-bind="text: id_company"></span>
+											</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="button-wrapper fixed">
+                <a class="button-modal" onclick="LMPS.closeModal();">戻る</a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-20" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            使い方
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+              
+              <div class="grid">
+                <div class="column">
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル1</b>
+                    </p>
+                  </div>
+                  <div data-bind="if: st_title2">
+                    <p data-bind="text: st_title2">
+                    </p>
+                  </div>
+                  <div>
+                    <p data-bind="text: st_message">
+                      この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この 文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章 はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+                    </p>
+                  </div>
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル2</b>
+                    </p>
+                  </div>
+                  <div data-bind="if: st_title2">
+                    <p data-bind="text: st_title2">
+                    </p>
+                  </div>
+                  <div>
+                    <p data-bind="text: st_message">
+                      この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この 文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章 はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダ ミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーで す。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文 字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の 大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大き さ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、 量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、 字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字 間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、 行間等を確認するために入れています。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+    </div><!-- .wrapper end -->
+  </body>
+</html>

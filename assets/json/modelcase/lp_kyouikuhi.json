@@ -1,0 +1,20 @@
+﻿[
+{"id_school":"1","id_koushi":"1","no_nenji":"3","id_bunri":"0","st_name":"幼稚園・保育園 公立 3年","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"223647","sm_room":"0"}
+,{"id_school":"1","id_koushi":"1","no_nenji":"4","id_bunri":"0","st_name":"幼稚園・保育園 公立 4年","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"223647","sm_room":"0"}
+,{"id_school":"1","id_koushi":"1","no_nenji":"5","id_bunri":"0","st_name":"幼稚園・保育園 公立 5年","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"223647","sm_room":"0"}
+,{"id_school":"1","id_koushi":"2","no_nenji":"3","id_bunri":"0","st_name":"幼稚園・保育園 私立 3年","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"527916","sm_room":"0"}
+,{"id_school":"1","id_koushi":"2","no_nenji":"4","id_bunri":"0","st_name":"幼稚園・保育園 私立 4年","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"527916","sm_room":"0"}
+,{"id_school":"1","id_koushi":"2","no_nenji":"5","id_bunri":"0","st_name":"幼稚園・保育園 私立 5年","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"527916","sm_room":"0"}
+,{"id_school":"2","id_koushi":"1","no_nenji":"6","id_bunri":"0","st_name":"小学校 公立","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"321281","sm_room":"0"}
+,{"id_school":"2","id_koushi":"2","no_nenji":"6","id_bunri":"0","st_name":"小学校 私立","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"1598691","sm_room":"0"}
+,{"id_school":"3","id_koushi":"1","no_nenji":"3","id_bunri":"0","st_name":"中学校 公立","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"488397","sm_room":"0"}
+,{"id_school":"3","id_koushi":"2","no_nenji":"3","id_bunri":"0","st_name":"中学校 私立","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"1406433","sm_room":"0"}
+,{"id_school":"4","id_koushi":"1","no_nenji":"3","id_bunri":"0","st_name":"高校 公立","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"457380","sm_room":"0"}
+,{"id_school":"4","id_koushi":"2","no_nenji":"3","id_bunri":"0","st_name":"高校 私立","sm_nyugaku":"0","sm_nyugakuroom":"0","sm_year":"969911","sm_room":"0"}
+,{"id_school":"5","id_koushi":"1","no_nenji":"4","id_bunri":"1","st_name":"大学 国公立 文系","sm_nyugaku":"282000","sm_nyugakuroom":"393000","sm_year":"535800","sm_room":"903000"}
+,{"id_school":"5","id_koushi":"1","no_nenji":"4","id_bunri":"2","st_name":"大学 国公立 理系","sm_nyugaku":"282000","sm_nyugakuroom":"393000","sm_year":"535800","sm_room":"903000"}
+,{"id_school":"5","id_koushi":"1","no_nenji":"6","id_bunri":"3","st_name":"大学 国公立 医科歯科系","sm_nyugaku":"282000","sm_nyugakuroom":"393000","sm_year":"535800","sm_room":"903000"}
+,{"id_school":"5","id_koushi":"2","no_nenji":"4","id_bunri":"1","st_name":"大学 私立 文系","sm_nyugaku":"381341","sm_nyugakuroom":"393000","sm_year":"785581","sm_room":"903000"}
+,{"id_school":"5","id_koushi":"2","no_nenji":"4","id_bunri":"2","st_name":"大学 私立 理系","sm_nyugaku":"439346","sm_nyugakuroom":"393000","sm_year":"1105616","sm_room":"903000"}
+,{"id_school":"5","id_koushi":"2","no_nenji":"6","id_bunri":"3","st_name":"大学 私立 医科歯科系","sm_nyugaku":"1954593","sm_nyugakuroom":"393000","sm_year":"2867802","sm_room":"903000"}
+]

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <link rel="shortcut icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no" />
+    <title>基本情報</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="stylesheet" href="assets/css/update.css"/>
+    <link rel="stylesheet" href="assets/css/blue.css"/>
+
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/app/common.js?ver=20210331"></script>
+		<script src="js/lib/knockout-3.4.0.js"></script>
+		<script src="js/app/appBase.js"></script>
+		<script src="js/db/lifePlanDB.js?ver=20210331"></script>
+		<script src="js/util/util.js"></script>
+		<script src="js/calc/baseCalc.js"></script>
+		<script src="js/calc/calc.js?ver=20210331"></script>
+		<script src="js/calc/logic01.js?ver=20210331"></script>
+		<script src="js/calc/logic02.js?ver=20210331"></script>
+		<script src="js/calc/logic03.js?ver=20210331"></script>
+		<script src="js/calc/logic05.js?ver=20210331"></script>
+		<script src="js/calc/logic04.js?ver=20210331"></script>
+		<script src="js/calc/logic09.js?ver=20210331"></script>
+		<script src="js/calc/logic06.js?ver=20210331"></script>
+		<script src="js/calc/logic07.js?ver=20210331"></script>
+		<script src="js/calc/logic08.js?ver=20210331"></script>
+    <script src="js/app/simulation3.js?ver=20210331"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <script src="js/update.js"></script>
+  </head>
+  <body>
+    <div class="wrapper single diagnosis">
+      <header class="header" data-bind="css: {'is-open': dispSidemenu}">
+        <div class="header-frame">
+          <div class="header__left">
+            <div class="burger">
+              <button class="burger__btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="burger">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+              </button>
+            </div>
+            <a href="top.html" class="home">
+              <svg class="icon">
+                <use xlink:href="./assets/img/svg/house.svg#house"></use>
+              </svg>
+            </a>
+            <button class="question-btn btn-reset" type="button" data-bind="click: Sidemenu.bind($data, '#modal-20')">
+              <svg class="icon">
+                <use xlink:href="./assets/img/svg/question-fill.svg#question-btn"></use>
+              </svg>
+              使い方
+            </button>
+          </div>
+          <div class="header__center header-navigation">
+            <h1 class="header__title fw-bold text-white">ライフ<span class="fs-1 fw-normal">＆</span>マネープラン<span class="fw-light">シミュレーション</span></h1>
+            <div class="navigation-title">
+              総合診断
+            </div>
+            <div class="navigation-links">
+              <a href="simulation1.html">将来資金収支分析</a>
+              <a href="simulation2.html">必要保障額分析</a>
+              <a href="simulation3.html" class="current">マネープラン</a>
+            </div>
+          </div>
+          <div class="header__right">
+            <a href="setting_tab1_basic.html" class="question-btn btn-reset">
+              <svg class="icon">
+                <use xlink:href="./assets/img/svg/left.svg#left"></use>
+              </svg>
+              設定編集
+            </a>
+          </div>
+          <!-- <div class="button-wrapper">
+            <a class="button-menu menu"></a>
+            <a href="top.html" class="button-menu home"></a>
+          </div>
+          <div class="header-navigation">
+            <div class="navigation-title">
+              総合診断
+            </div>
+            <div class="navigation-links">
+              <a href="simulation1.html">将来資金収支分析</a>
+              <a href="simulation2.html">必要保障額分析</a>
+              <a href="simulation3.html" class="current">マネープラン</a>
+            </div>
+            <a href="setting_tab1_basic.html" class="button-back">設定編集</a>
+          </div> -->
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <button class="burger__btn burger__btn_open" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+              </button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="nav__list list-reset">
+                <li class="nav__item" data-bs-dismiss="offcanvas">
+                  <a class="nav__link" data-bind="click: Sidemenu.bind($data, '#modal-10')">
+                    ご利用時の留意事項
+                    <svg class="icon arrow">
+                      <use xlink:href="./assets/img/svg/right.svg#right"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="nav__item" data-bs-dismiss="offcanvas">
+                  <a class="nav__link" data-bind="click: Sidemenu.bind($data, '#modal-11')">
+                    設定
+                    <svg class="icon arrow">
+                      <use xlink:href="./assets/img/svg/right.svg#right"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="menu-wrap">
+          <ul class="menu-list">
+            <li>
+              <a data-bind="click: Sidemenu.bind($data, '#modal-10')">ご利用時の留意事項</a>
+            </li>
+            <li>
+              <a data-bind="click: Sidemenu.bind($data, '#modal-11')">設定</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <main class="main bg-white" data-bind="visible: true" style="display: none">
+        <div class="content-frame">
+          <div class="content-panel diagnosis-plan">
+            <div class="plan-title">資産運用プラン<span class="plan-title-sub">〜お金の用途に応じて、金融資産を色分けしよう〜</span></div>
+
+            <div class="funds-wrapper">
+              <div class="funds-total">現在の金融資産残高<span class="amount" data-bind="text: sim3_txt_total"></span><div class="tab-period funds-tab"></div>
+              </div>
+              <div class="funds-panel-wrapper">
+                <div class="funds-panel liquidity">
+                  <div class="title"><span>流動性<br />資金</span></div>
+                  <div class="content">
+                    <p>
+                      基本生活費の6ヶ月分を目安にして、普通預金など換金性の高い金融商品を確保しましょう。
+                    </p>
+                    <div class="form">
+                      <input type="text" class="textarea number" data-bind="value: sim3_edit_ryudo_shikin,
+																																						event:{change: onCalcFinish.bind($data, 'sim3_edit_ryudo_shikin', 0)}" />
+                      <span class="unit">円</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="funds-panel stability">
+                  <div class="title"><span>安定性<br />資金</span></div>
+                  <div class="content">
+                    <p>
+                      10年以内に使用予定の資金は、定期預金や公社債投信など収益が安定している金融商品で運用します。
+                    </p>
+                    <div class="form">
+                      <input type="text" class="textarea number" data-bind="value: sim3_edit_antei_shikin,
+																																						event:{change: onCalcFinish.bind($data, 'sim3_edit_antei_shikin', 0)}" />
+                      <span class="unit">円</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="funds-panel reserve">
+                  <div class="title"><span>予備資金</span></div>
+                  <div class="content">
+                    <p>
+                      病気や介護など、万一に備えた資金。
+                    </p>
+                    <div class="form no-input">
+                      <b class="font-xlarge" data-bind="text: sim3_txt_yobi_shikin"></b>
+                      <span class="unit">万円</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="funds-panel investment">
+                  <div class="title"><span>長期運用<br />資金</span></div>
+                  <div class="content">
+                    <p>
+                      10年超使用予定のない資金は、内外債券や内外株式（投資信託を含む）など比較的高い収益が期待できる金融商品での運用を検討しましょう。
+                    </p>
+                    <div class="form">
+                      <input type="text" class="textarea number" data-bind="value: sim3_edit_chouki_shikin,
+																																						event:{change: onCalcFinish.bind($data, 'sim3_edit_chouki_shikin', 0)}" />
+                      <span class="unit">円</span>
+                      <div class="add-condition">
+												<div class="style">
+													<div class="label">投資スタイル</div>
+                          <div class="value" data-bind="text: sim3_txt_id_invest"></div>
+												</div>
+												<div class="yield">
+                          <div class="label">目標利回り</div>
+                          <div class="value" data-bind="text: sim3_txt_ra_invest"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="button-wrapper">
+                <a class="button-end" onclick="location.href = 'index.html'">シミュレーション終了</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+			<div id="modal-10" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            ご利用に際しての留意事項
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+
+				<div class="grid">
+					<div class="column" data-bind="foreach: screenMessageL">
+						<div class="font-xlarge" data-bind="if: st_title1">
+							<p>
+								<b class="dynamic" data-bind="text: st_title1">ご利用に際して</b>
+							</p>
+						</div>
+						<div data-bind="if: st_title2">
+							<p data-bind="text: st_title2">
+							</p>
+						</div>
+						<div>
+							<p data-bind="text: st_message">
+							</p>
+						</div>
+					</div>
+					<div class="column" data-bind="foreach: screenMessageR">
+						<div class="font-xlarge" data-bind="if: st_title1">
+							<p>
+								<b class="dynamic" data-bind="text: st_title1">ご利用に際して</b>
+							</p>
+						</div>
+						<div data-bind="if: st_title2">
+							<p data-bind="text: st_title2">
+							</p>
+						</div>
+						<div>
+							<p data-bind="text: st_message">
+							</p>
+						</div>
+					</div>
+				</div>
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+			<div id="modal-11" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            設定
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+              <div class="table">
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        カンパニーID
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+												<span data-bind="text: id_company"></span>
+											</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="button-wrapper fixed">
+                <a class="button-modal" onclick="LMPS.closeModal();">戻る</a>
+              </div>
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+      <div id="modal-20" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            使い方
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+              
+              <div class="grid">
+                <div class="column">
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル1</b>
+                    </p>
+                  </div>
+                  <div data-bind="if: st_title2">
+                    <p data-bind="text: st_title2">
+                    </p>
+                  </div>
+                  <div>
+                    <p data-bind="text: st_message">
+                      この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この 文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章 はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+                    </p>
+                  </div>
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル2</b>
+                    </p>
+                  </div>
+                  <div data-bind="if: st_title2">
+                    <p data-bind="text: st_title2">
+                    </p>
+                  </div>
+                  <div>
+                    <p data-bind="text: st_message">
+                      この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この 文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章 はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダ ミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーで す。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文 字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の 大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大き さ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、 量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、 字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字 間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、 行間等を確認するために入れています。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>

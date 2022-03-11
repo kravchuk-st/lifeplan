@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <link rel="shortcut icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no" />
+    <title>基本情報</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="stylesheet" href="assets/css/update.css"/>
+    <link rel="stylesheet" href="assets/css/blue.css"/>
+
+    <script src="js/lib/jquery.min.js"></script>
+		<script src="js/lib/knockout-3.4.0.js"></script>
+    <script src="js/app/common.js?ver=20210331"></script>
+		<script src="js/app/appBase.js"></script>
+		<script src="js/db/lifePlanDB.js?ver=20210331"></script>
+		<script src="js/util/util.js"></script>
+		<script src="js/calc/baseCalc.js"></script>
+		<script src="js/calc/calc.js?ver=20210331"></script>
+		<script src="js/calc/logic01.js?ver=20210331"></script>
+		<script src="js/calc/logic02.js?ver=20210331"></script>
+		<script src="js/calc/logic03.js?ver=20210331"></script>
+		<script src="js/calc/logic05.js?ver=20210331"></script>
+		<script src="js/calc/logic04.js?ver=20210331"></script>
+		<script src="js/calc/logic09.js?ver=20210331"></script>
+		<script src="js/calc/logic06.js?ver=20210331"></script>
+		<script src="js/calc/logic07.js?ver=20210331"></script>
+		<script src="js/calc/logic08.js?ver=20210331"></script>
+    <script src="js/graph/graph.js"></script>
+    <script src="js/graph/graphSimulation2.js"></script>
+    <script src="js/graph/graphEvent.js"></script>
+    <script src="js/app/simulation2.js?ver=20210331"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <script src="js/update.js"></script>
+  </head>
+  <body>
+    <div class="wrapper single diagnosis">
+      <header class="header" data-bind="css: {'is-open': dispSidemenu}">
+        <div class="header-frame">
+          <div class="header__left">
+            <div class="burger">
+              <button class="burger__btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="burger">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+              </button>
+            </div>
+            <a href="top.html" class="home">
+              <svg class="icon">
+                <use xlink:href="./assets/img/svg/house.svg#house"></use>
+              </svg>
+            </a>
+            <button class="question-btn btn-reset" type="button" data-bind="click: Sidemenu.bind($data, '#modal-20')">
+              <svg class="icon">
+                <use xlink:href="./assets/img/svg/question-fill.svg#question-btn"></use>
+              </svg>
+              使い方
+            </button>
+          </div>
+          <div class="header__center header-navigation">
+            <h1 class="header__title fw-bold text-white">ライフ<span class="fs-1 fw-normal">＆</span>マネープラン<span class="fw-light">シミュレーション</span></h1>
+            <div class="navigation-title">
+              総合診断
+            </div>
+            <div class="navigation-links">
+              <a href="#" data-bind="click: onClick.bind($data, 'simulation_tab1')">将来資金収支分析</a>
+              <a href="#" class="current" data-bind="click: onClick.bind($data, 'simulation_tab2')">必要保障額分析</a>
+              <a href="#" data-bind="click: onClick.bind($data, 'simulation_tab3')">マネープラン</a>
+            </div>
+          </div>
+          <div class="header__right">
+            <a href="#" class="question-btn btn-reset" data-bind="click: onClick.bind($data, 'goto_setting')">
+              <svg class="icon">
+                <use xlink:href="./assets/img/svg/left.svg#left"></use>
+              </svg>
+              設定編集
+            </a>
+          </div>
+          <!-- <div class="button-wrapper">
+            <a class="button-menu menu"></a>
+            <a href="top.html" class="button-menu home"></a>
+          </div>
+          <div class="header-navigation">
+            <div class="navigation-title">
+              総合診断
+            </div>
+            <div class="navigation-links">
+              <a href="#" data-bind="click: onClick.bind($data, 'simulation_tab1')">将来資金収支分析</a>
+              <a href="#" class="current" data-bind="click: onClick.bind($data, 'simulation_tab2')">必要保障額分析</a>
+              <a href="#" data-bind="click: onClick.bind($data, 'simulation_tab3')">マネープラン</a>
+            </div>
+            <a href="#" class="button-back" data-bind="click: onClick.bind($data, 'goto_setting')">設定編集</a>
+          </div> -->
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <button class="burger__btn burger__btn_open" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+              </button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="nav__list list-reset">
+                <li class="nav__item" data-bs-dismiss="offcanvas">
+                  <a class="nav__link" data-bind="click: Sidemenu.bind($data, '#modal-10')">
+                    ご利用時の留意事項
+                    <svg class="icon arrow">
+                      <use xlink:href="./assets/img/svg/right.svg#right"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="nav__item" data-bs-dismiss="offcanvas">
+                  <a class="nav__link" data-bind="click: Sidemenu.bind($data, '#modal-11')">
+                    設定
+                    <svg class="icon arrow">
+                      <use xlink:href="./assets/img/svg/right.svg#right"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="menu-wrap">
+          <ul class="menu-list">
+            <li>
+              <a data-bind="click: Sidemenu.bind($data, '#modal-10')">ご利用時の留意事項</a>
+            </li>
+            <li>
+              <a data-bind="click: Sidemenu.bind($data, '#modal-11')">設定</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <main class="main bg-white" data-bind="visible: true" style="display: none">
+        <div class="content-frame">
+          <div class="content-panel diagnosis-funds">
+            <div class="graph-wrapper">
+              <div class="graph-condition">
+                <div class="condition-panel">
+                  <div class="title">
+                    基本生活費
+                  </div>
+                  <div class="content nowrap">
+										<span data-bind="text: edit_txt_simulation1"></span><span class="unit">万円</span>
+                  </div>
+                </div>
+
+                <div class="condition-panel">
+                  <div class="title">
+                    マネープラン
+                  </div>
+                  <div class="content">
+                    <div class="title-sub">
+                      運用資金額
+                    </div>
+                    <span data-bind="text: sim1_lbl_invest"></span><span class="unit">万円</span>
+                    <div class="title-sub">
+                      貯蓄・積立金
+                    </div>
+                    <span data-bind="text: sim1_lbl_store"></span><span class="unit">万円</span>
+										<div class="select-info" id="c1">
+											<div class="info-item-wrapper">
+                        <div class="info-item">
+                          <span class="option-title" data-bind="text: mSt_invest"></span>
+                          <span class="option-text" data-bind="text: mRa_invest"></span>
+                        </div>
+                      </div>
+										</div>
+                  </div>
+                </div>
+
+                <div class="condition-panel event-expense">
+                  <div class="title">
+                    イベント支出
+                  </div>
+                  <div class="content">
+                    <a class="button-event" data-bind="click: onClick.bind($data, '#modal-5')">旅行</a>
+										<a class="button-event" data-bind="click: onClick.bind($data, '#modal-3')">車</a>
+                    <a class="button-event" data-bind="click: onClick.bind($data, '#modal-4')">改築</a>
+									</div>
+                </div>
+              </div>
+              <div class="graph-content">
+                <div class="tab-period content-tab">
+                  <a class="current">ご本人様</a>
+                  <a data-bind="visible: sim1_tab_1,click: onClick.bind($data, 'sim1_tab_2')">配偶者様</a>
+                </div>
+
+                <div class="graph-view">
+                  <canvas id="canvas1" width="1570" height="658">
+										このコンテンツの表示にはCANVASに対応したブラウザをご利用下さい。
+                  </canvas>
+                </div>
+                <div class="event-list is-show-scrollbar">
+                  <canvas id="canvas-event-list-1" width="1570" height="370">
+										このコンテンツの表示にはCANVASに対応したブラウザをご利用下さい。
+                  </canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-panel diagnosis-funds">
+
+            <div class="graph-wrapper">
+              <div class="graph-condition">
+                <div class="condition-panel">
+                  <div class="title">
+                    基本生活費
+                  </div>
+                  <div class="content nowrap">
+                    <span data-bind="text: edit_txt_simulation1"></span><span class="unit">万円</span>
+                  </div>
+                </div>
+
+                <div class="condition-panel">
+                  <div class="title">
+                    マネープラン
+                  </div>
+                  <div class="content">
+                    <div class="title-sub">
+                      運用資金額
+                    </div>
+                    <span data-bind="text: sim1_lbl_invest"></span><span class="unit">万円</span>
+                    <div class="title-sub">
+                      貯蓄・積立金
+                    </div>
+                    <span data-bind="text: sim1_lbl_store"></span><span class="unit">万円</span>
+										<div class="select-info" id="c1">
+											<div class="info-item-wrapper">
+                        <div class="info-item">
+                          <span class="option-title" data-bind="text: mSt_invest"></span>
+                          <span class="option-text" data-bind="text: mRa_invest"></span>
+                        </div>
+                      </div>
+										</div>
+                  </div>
+                </div>
+
+                <div class="condition-panel event-expense">
+                  <div class="title">
+                    イベント支出
+                  </div>
+                  <div class="content">
+                    <a class="button-event" data-bind="click: onClick.bind($data, '#modal-5')">旅行</a>
+										<a class="button-event" data-bind="click: onClick.bind($data, '#modal-3')">車</a>
+                    <a class="button-event" data-bind="click: onClick.bind($data, '#modal-4')">改築</a>
+									</div>
+                </div>
+              </div>
+              <div class="graph-content">
+                <div class="tab-period content-tab">
+                  <a data-bind="click: onClick.bind($data, 'sim1_tab_1')">ご本人様</a>
+                  <a class="current" data-bind="visible: sim1_tab_1">配偶者様</a>
+                </div>
+
+                <div class="graph-view">
+                  <canvas id="canvas2" width="1570" height="658">
+										このコンテンツの表示にはCANVASに対応したブラウザをご利用下さい。
+                  </canvas>
+                </div>
+
+                <div class="event-list is-show-scrollbar">
+                  <canvas id="canvas-event-list-2" width="1570" height="370">
+										このコンテンツの表示にはCANVASに対応したブラウザをご利用下さい。
+                  </canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+			<div id="modal-1" class="modal">
+        <div class="modal-frame">
+          <div class="modal-title">
+            診断結果
+          </div>
+          <div class="modal-content-wide is-scroll">
+            <div class="modal-panel">
+              <div class="panel-wrapper">
+								<div class="table">
+									<table>
+										<tr>
+											<th>
+												<div>
+													<span class="font-xlarge" data-bind="text: st_mark"></span>
+												</div>
+											</th>
+											<td>
+												<div class="add-button">
+													<span class="font-xlarge" data-bind="text: messageSt"></span>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+              </div>
+
+              <div class="button-wrapper">
+                <a class="button-modal decide" onclick="LMPS.closeModal();">閉じる</a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-2" class="modal">
+        <div class="modal-frame cost-monthly">
+          <div class="modal-title">
+            基本生活費（月額）
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel">
+              <div class="table">
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        手取り収入額
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+                        <span class="font-large" data-bind="text: popup_sim1_tedori">万円</span>
+                        <span class="yearly" data-bind="text: popup_sim1_tedori_year">（年額 450.0万円）</span>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="table">
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        基本生活費
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+                        <span class="font-large" data-bind="text: popup_sim1_edit_livingcost">万円</span>
+                        <span class="yearly" data-bind="text: popup_sim1_livingcost_year">（年額 270.0万円）</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <div>
+                        住宅関連費
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+                        <span class="font-large" data-bind="text: popup_sim1_jyutaku">万円</span>
+                        <span class="yearly" data-bind="text: popup_sim1_jyutaku_year">（年額 120.0万円）</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <div>
+                        教育関連費
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+                        <span class="font-large" data-bind="text: popup_sim1_kyouiku">万円</span>
+                        <span class="yearly" data-bind="text: popup_sim1_kyouiku_year">（年額 0.0万円）</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <div>
+                        生命・損害保険料
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+                        <span class="font-large" data-bind="text: popup_sim1_seimei">万円</span>
+                        <span class="yearly" data-bind="text: popup_sim1_seimei_year">（年額 24.0万円）</span>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="table">
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        毎月の貯蓄・積立額
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+                        <span class="font-large" data-bind="text: popup_sim1_tsumitate">万円</span>
+                        <span class="yearly" data-bind="text: popup_sim1_tsumitate_year">（年額 36.0万円）</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <div>
+                        毎月の過不足額
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+                        <span class="font-large" data-bind="text: popup_sim1_kabusoku">万円</span>
+                        <span class="yearly" data-bind="text: popup_sim1_kabusoku_year">（年額 36.0万円）</span>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="button-wrapper">
+                <a class="button-modal" onclick="LMPS.closeModal();">戻る</a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();"></a>
+        </div>
+      </div>
+
+			<div id="modal-3" class="modal">
+        <div class="modal-frame">
+          <div class="modal-title">
+            車
+          </div>
+          <div class="modal-content-wide is-scroll">
+            <div class="modal-panel event-expenses">
+              <div class="panel-wrapper">
+                <ul class="event-list car">
+                  <li>
+                    <div>
+                      <p class="destination">軽四</p>
+                      <p class="image"><img src="assets/img/event/img_car01.png" alt="軽四" /></p>
+                      <p class="price">
+                        <span class="label">購入価格：</span>
+                        <span class="value">110万円</span>
+                      </p>
+                      <p class="price">
+                        <span class="label">維持費用：</span>
+                        <span class="value">15万円</span>
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">スポーツ</p>
+                      <p class="image"><img src="assets/img/event/img_car02.png" alt="スポーツ" /></p>
+                      <p class="price">
+                        <span class="label">購入価格：</span>
+                        <span class="value">310万円</span>
+                      </p>
+                      <p class="price">
+                        <span class="label">維持費用：</span>
+                        <span class="value">32万円</span>
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">ミニバン</p>
+                      <p class="image"><img src="assets/img/event/img_car03.png" alt="ミニバン" /></p>
+                      <p class="price">
+                        <span class="label">購入価格：</span>
+                        <span class="value">260万円</span>
+                      </p>
+                      <p class="price">
+                        <span class="label">維持費用：</span>
+                        <span class="value">30万円</span>
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">小型</p>
+                      <p class="image"><img src="assets/img/event/img_car04.png" alt="小型" /></p>
+                      <p class="price">
+                        <span class="label">購入価格：</span>
+                        <span class="value">140万円</span>
+                      </p>
+                      <p class="price">
+                        <span class="label">維持費用：</span>
+                        <span class="value">24万円</span>
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">SUV</p>
+                      <p class="image"><img src="assets/img/event/img_car05.png" alt="SUV" /></p>
+                      <p class="price">
+                        <span class="label">購入価格：</span>
+                        <span class="value">260万円</span>
+                      </p>
+                      <p class="price">
+                        <span class="label">維持費用：</span>
+                        <span class="value">30万円</span>
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">セダン</p>
+                      <p class="image"><img src="assets/img/event/img_car06.png" alt="セダン" /></p>
+                      <p class="price">
+                        <span class="label">購入価格：</span>
+                        <span class="value">420万円</span>
+                      </p>
+                      <p class="price">
+                        <span class="label">維持費用：</span>
+                        <span class="value">35万円</span>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+                <div class="entry-form">
+                  <div class="age">
+                    <select class="pulldown" data-bind="options: popup_event_age,
+																													  value: popup_event_age_v,
+																													  event:{change: onSelect.bind($data, 'popup_event_age', 3, event)}"></select>
+                    歳時
+                  </div>
+                  <div class="budget">
+                    <label>予算額</label>
+                    <input type="text" class="textarea middle number" data-bind="value: popup_event_yosangaku,
+																																										 event:{change: onCalcFinish.bind($data, 'popup_event_yosangaku', 3)}" />
+                    円
+                  </div>
+                </div>
+              </div>
+              <div class="button-wrapper">
+                <p class="attention font-xsmall">車情報誌等から<br />NTTデータエービック調べ</p>
+                <a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_delete', 3), visible: popup_delete">設定を削除する</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 3), text: popup_close"></a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 3)">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-4" class="modal">
+        <div class="modal-frame">
+          <div class="modal-title">
+            改築
+          </div>
+          <div class="modal-content-wide is-scroll">
+            <div class="modal-panel event-expenses">
+
+              <div class="panel-wrapper">
+                <ul class="event-list renovation">
+                  <li>
+                    <div>
+                      <p class="destination">キッチン</p>
+                      <p class="image"><img src="assets/img/event/img_renovation01.png" alt="キッチン" /></p>
+                      <p class="price">100〜150万円</p>
+                      <p class="period">（築後15〜20年）</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">浴　室</p>
+                      <p class="image"><img src="assets/img/event/img_renovation02.png" alt="浴室" /></p>
+                      <p class="price">90〜140万円</p>
+                      <p class="period">（築後10〜15年）</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">トイレ</p>
+                      <p class="image"><img src="assets/img/event/img_renovation03.png" alt="トイレ" /></p>
+                      <p class="price">30〜50万円</p>
+                      <p class="period">（築後15〜20年）</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">内装の模様替え</p>
+                      <p class="image"><img src="assets/img/event/img_renovation04.png" alt="内装の模様替え" /></p>
+                      <p class="price">100〜150万円</p>
+                      <p class="period">（築後10〜15年）</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">屋根・外装の塗り替え</p>
+                      <p class="image"><img src="assets/img/event/img_renovation05.png" alt="屋根・外装の塗り替え" /></p>
+                      <p class="price">150〜250万円</p>
+                      <p class="period">（築後15〜25年）</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">増　築</p>
+                      <p class="image"><img src="assets/img/event/img_renovation06.png" alt="増築" /></p>
+                      <p class="price">750〜1000万円</p>
+                      <p class="period">（ライフスタイルの変化）</p>
+                    </div>
+                  </li>
+                </ul>
+                <div class="entry-form">
+                  <div class="age">
+                    <select class="pulldown" data-bind="options: popup_event_age,
+																													  value: popup_event_age_v,
+																													  event:{change: onSelect.bind($data, 'popup_event_age', 3, event)}"></select>
+                    歳時
+                  </div>
+                  <div class="budget">
+                    <label>予算額</label>
+                    <input type="text" class="textarea middle number" data-bind="value: popup_event_yosangaku,
+																																										 event:{change: onCalcFinish.bind($data, 'popup_event_yosangaku', 3)}" />
+                    円
+                  </div>
+                </div>
+              </div>
+
+              <div class="button-wrapper">
+                <p class="attention font-xsmall">各種資料から<br />NTTデータエービック調べ</p>
+                <a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_delete', 3), visible: popup_delete">設定を削除する</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 3), text: popup_close"></a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 3)">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-5" class="modal">
+        <div class="modal-frame">
+          <div class="modal-title">
+            旅行
+          </div>
+          <div class="modal-content-wide is-scroll">
+            <div class="modal-panel event-expenses">
+              <div class="panel-wrapper">
+                <ul class="event-list travel">
+                  <li>
+                    <div>
+                      <p class="destination">癒しの温泉旅行</p>
+                      <p class="duration">（2泊3日）</p>
+                      <p class="image"><img src="assets/img/event/img_travel01.png" alt="癒しの温泉旅行" /></p>
+                      <p class="price">4万円</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">中国世界遺産の旅</p>
+                      <p class="duration">（4泊5日）</p>
+                      <p class="image"><img src="assets/img/event/img_travel02.png" alt="中国世界遺産の旅" /></p>
+                      <p class="price">12万円</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">ハワイリゾート</p>
+                      <p class="duration">（5泊6日）</p>
+                      <p class="image"><img src="assets/img/event/img_travel03.png" alt="ハワイリゾート" /></p>
+                      <p class="price">20万円</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">北海道グルメ紀行</p>
+                      <p class="duration">（3泊4日）</p>
+                      <p class="image"><img src="assets/img/event/img_travel04.png" alt="北海道グルメ紀行" /></p>
+                      <p class="price">6万円</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">欧州紀行</p>
+                      <p class="duration">（7泊8日）</p>
+                      <p class="image"><img src="assets/img/event/img_travel05.png" alt="欧州紀行" /></p>
+                      <p class="price">30万円</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">世界一周クルーズ</p>
+                      <p class="duration">（100日間）</p>
+                      <p class="image"><img src="assets/img/event/img_travel06.png" alt="世界一周クルーズ" /></p>
+                      <p class="price">250万円</p>
+                    </div>
+                  </li>
+                </ul>
+                <div class="entry-form">
+                  <div class="age">
+                    <select class="pulldown" data-bind="options: popup_event_age,
+																													  value: popup_event_age_v,
+																													  event:{change: onSelect.bind($data, 'popup_event_age', 3, event)}"></select>
+                    歳時
+                  </div>
+                  <div class="budget">
+                    <label>予算額</label>
+                    <input type="text" class="textarea middle number" data-bind="value: popup_event_yosangaku,
+																																										 event:{change: onCalcFinish.bind($data, 'popup_event_yosangaku', 3)}" />
+                    円
+                  </div>
+                </div>
+              </div>
+
+              <div class="button-wrapper">
+                <p class="attention font-xsmall">旅行情報誌等から<br />NTTデータエービック調べ</p>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_delete', 3), visible: popup_delete">設定を削除する</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 3), text: popup_close"></a>
+              </div>
+            </div>
+          </div>
+					<a class="button-modal-close" data-bind="click: onClickClose.bind($data, 'popup_cancel', 3)">閉じる</a>
+        </div>
+      </div>
+      
+      <div id="modal-6" class="modal">
+        <div class="modal-frame">
+          <div class="modal-title">
+            結婚
+          </div>
+          <div class="modal-content-wide is-scroll">
+            <div class="modal-panel event-expenses">
+
+              <div class="panel-wrapper">
+                <ul class="event-list marriage">
+                  <li>
+                    <div>
+                      <p class="destination">結婚費用総額</p>
+                      <p class="image"><img src="assets/img/event/img_marriage01.png" alt="結婚費用総額" /></p>
+                      <p class="price">462万円</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">挙式・披露宴</p>
+                      <p class="image"><img src="assets/img/event/img_marriage02.png" alt="挙式・披露宴" /></p>
+                      <p class="price">355万円</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">新婚旅行</p>
+                      <p class="image"><img src="assets/img/event/img_marriage03.png" alt="新婚旅行" /></p>
+                      <p class="price">61万円</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">ご祝儀</p>
+                      <p class="image"><img src="assets/img/event/img_marriage04.png" alt="ご祝儀" /></p>
+                      <p class="price">224万円</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">親からの援助</p>
+                      <p class="image"><img src="assets/img/event/img_marriage05.png" alt="親からの援助" /></p>
+                      <p class="price">188万円</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p class="destination">夫婦の貯蓄額</p>
+                      <p class="image"><img src="assets/img/event/img_marriage06.png" alt="夫婦の貯蓄額" /></p>
+                      <p class="price">324万円</p>
+                    </div>
+                  </li>
+                </ul>
+                <div class="entry-form">
+                  <div class="age">
+                    <select class="pulldown" data-bind="options: popup_event_age,
+																													  value: popup_event_age_v,
+																													  event:{change: onSelect.bind($data, 'popup_event_age', 3, event)}"></select>
+                    歳時
+                  </div>
+                  <div class="budget">
+                    <label>予算額</label>
+                    <input type="text" class="textarea middle number" data-bind="value: popup_event_yosangaku,
+																																										 event:{change: onCalcFinish.bind($data, 'popup_event_yosangaku', 3)}" />
+                    円
+                  </div>
+                </div>
+              </div>
+
+              <div class="button-wrapper">
+                <p class="attention font-xsmall">リクルート：<br />「ゼクシィ結婚トレンド調査2019」<br />（全国平均）</p>
+                <a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_delete', 3), visible: popup_delete">設定を削除する</a>
+								<a class="button-modal decide" data-bind="click: onClickClose.bind($data, 'popup_change', 3), text: popup_close"></a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-10" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            ご利用に際しての留意事項
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+
+				<div class="grid">
+					<div class="column" data-bind="foreach: screenMessageL">
+						<div class="font-xlarge" data-bind="if: st_title1">
+							<p>
+								<b class="dynamic" data-bind="text: st_title1">ご利用に際して</b>
+							</p>
+						</div>
+						<div data-bind="if: st_title2">
+							<p data-bind="text: st_title2">
+							</p>
+						</div>
+						<div>
+							<p data-bind="text: st_message">
+							</p>
+						</div>
+					</div>
+					<div class="column" data-bind="foreach: screenMessageR">
+						<div class="font-xlarge" data-bind="if: st_title1">
+							<p>
+								<b class="dynamic" data-bind="text: st_title1">ご利用に際して</b>
+							</p>
+						</div>
+						<div data-bind="if: st_title2">
+							<p data-bind="text: st_title2">
+							</p>
+						</div>
+						<div>
+							<p data-bind="text: st_message">
+							</p>
+						</div>
+					</div>
+				</div>
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-11" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            設定
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+              <div class="table">
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        カンパニーID
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+												<span data-bind="text: id_company"></span>
+											</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="button-wrapper fixed">
+                <a class="button-modal" onclick="LMPS.closeModal();">戻る</a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+      <div id="modal-20" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            使い方
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+              
+              <div class="grid">
+                <div class="column">
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル1</b>
+                    </p>
+                  </div>
+                  <div data-bind="if: st_title2">
+                    <p data-bind="text: st_title2">
+                    </p>
+                  </div>
+                  <div>
+                    <p data-bind="text: st_message">
+                      この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この 文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章 はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+                    </p>
+                  </div>
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル2</b>
+                    </p>
+                  </div>
+                  <div data-bind="if: st_title2">
+                    <p data-bind="text: st_title2">
+                    </p>
+                  </div>
+                  <div>
+                    <p data-bind="text: st_message">
+                      この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この 文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章 はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダ ミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーで す。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文 字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の 大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大き さ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、 量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、 字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字 間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、 行間等を確認するために入れています。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

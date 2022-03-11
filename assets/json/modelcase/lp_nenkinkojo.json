@@ -1,0 +1,15 @@
+﻿[
+{"id_nenkin":"1","id_age":"64","sm_upper":"99999999","sm_lower":"10000000","ra_kojo":"0","sm_kojo":"1955000"}
+,{"id_nenkin":"1","id_age":"65","sm_upper":"99999999","sm_lower":"10000000","ra_kojo":"0","sm_kojo":"1955000"}
+,{"id_nenkin":"2","id_age":"64","sm_upper":"10000000","sm_lower":"7700000","ra_kojo":"0.05","sm_kojo":"1455000"}
+,{"id_nenkin":"2","id_age":"65","sm_upper":"10000000","sm_lower":"7700000","ra_kojo":"0.05","sm_kojo":"1455000"}
+,{"id_nenkin":"3","id_age":"64","sm_upper":"7700000","sm_lower":"4100000","ra_kojo":"0.15","sm_kojo":"685000"}
+,{"id_nenkin":"3","id_age":"65","sm_upper":"7700000","sm_lower":"4100000","ra_kojo":"0.15","sm_kojo":"685000"}
+,{"id_nenkin":"4","id_age":"64","sm_upper":"4100000","sm_lower":"3300000","ra_kojo":"0.25","sm_kojo":"275000"}
+,{"id_nenkin":"4","id_age":"65","sm_upper":"4100000","sm_lower":"3300000","ra_kojo":"0.25","sm_kojo":"275000"}
+,{"id_nenkin":"5","id_age":"64","sm_upper":"3300000","sm_lower":"1300000","ra_kojo":"0.25","sm_kojo":"275000"}
+,{"id_nenkin":"5","id_age":"65","sm_upper":"3300000","sm_lower":"1100000","ra_kojo":"0","sm_kojo":"1100000"}
+,{"id_nenkin":"6","id_age":"64","sm_upper":"1300000","sm_lower":"600000","ra_kojo":"0","sm_kojo":"600000"}
+,{"id_nenkin":"6","id_age":"65","sm_upper":"1100000","sm_lower":"0","ra_kojo":"0","sm_kojo":"0"}
+,{"id_nenkin":"7","id_age":"64","sm_upper":"600000","sm_lower":"0","ra_kojo":"0","sm_kojo":"0"}
+]

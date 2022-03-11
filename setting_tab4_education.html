@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <link rel="shortcut icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no" />
+    <title>教育プラン</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="stylesheet" href="assets/css/update.css"/>
+    <link rel="stylesheet" href="assets/css/blue.css"/>
+    
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/app/common.js?ver=20210331"></script>
+		<script src="js/lib/knockout-3.4.0.js"></script>
+		<script src="js/app/appBase.js"></script>
+		<script src="js/db/lifePlanDB.js?ver=20210331"></script>
+		<script src="js/util/util.js"></script>
+		<script src="js/calc/baseCalc.js"></script>
+		<script src="js/calc/calc.js?ver=20210331"></script>
+		<script src="js/calc/logic01.js?ver=20210331"></script>
+		<script src="js/calc/logic02.js?ver=20210331"></script>
+		<script src="js/calc/logic03.js?ver=20210331"></script>
+		<script src="js/calc/logic05.js?ver=20210331"></script>
+		<script src="js/calc/logic04.js?ver=20210331"></script>
+		<script src="js/calc/logic09.js?ver=20210331"></script>
+		<script src="js/calc/logic06.js?ver=20210331"></script>
+		<script src="js/calc/logic07.js?ver=20210331"></script>
+		<script src="js/calc/logic08.js?ver=20210331"></script>
+		<script src="js/app/settingEducation.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <script src="js/update.js"></script>
+  </head>
+  <body>
+    <div class="wrapper education-plane" data-bind="css: modelClass">
+      <header class="header" data-bind="css: {'is-open': dispSidemenu}">
+        <div class="content-frame">
+          <div class="header-frame ">
+            <div class="header__left">
+              <div class="burger">
+                <button class="burger__btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="burger">
+                  <span class="burger__line"></span>
+                  <span class="burger__line"></span>
+                  <span class="burger__line"></span>
+                </button>
+              </div>
+              <a href="top.html" class="home">
+                <svg class="icon">
+                  <use xlink:href="./assets/img/svg/house.svg#house"></use>
+                </svg>
+              </a>
+              <button class="question-btn btn-reset" type="button" data-bind="click: Sidemenu.bind($data, '#modal-20')">
+                <svg class="icon">
+                  <use xlink:href="./assets/img/svg/question-fill.svg#question-btn"></use>
+                </svg>
+                使い方
+              </button>
+            </div>
+            <div class="header__center">
+              <h1 class="header__title fw-bold text-white">ライフ<span class="fs-1 fw-normal">＆</span>マネープラン<span class="fw-light">シミュレーション</span></h1>
+            </div>
+            <div class="header__right">
+              <span data-bind="html: simulation1, click: onClick.bind($data, 'goto_simulation', 0)"></span>
+            </div>
+            
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+              <div class="offcanvas-header">
+                <button class="burger__btn burger__btn_open" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                  <span class="burger__line"></span>
+                  <span class="burger__line"></span>
+                  <span class="burger__line"></span>
+                </button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="nav__list list-reset">
+                  <li class="nav__item" data-bs-dismiss="offcanvas">
+                    <a class="nav__link" data-bind="click: Sidemenu.bind($data, '#modal-10')">
+                      ご利用時の留意事項
+                      <svg class="icon arrow">
+                        <use xlink:href="./assets/img/svg/right.svg#right"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="nav__item" data-bs-dismiss="offcanvas">
+                    <a class="nav__link" data-bind="click: Sidemenu.bind($data, '#modal-11')">
+                      設定
+                      <svg class="icon arrow">
+                        <use xlink:href="./assets/img/svg/right.svg#right"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="navigation">
+        <div class="content-frame">
+          <ul class="grid wrapper-sm">
+            <li class="column">
+							<span data-bind="html: setting_tab1_basic, click: onClick.bind($data, 'setting_tab1', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab2_job, click: onClick.bind($data, 'setting_tab2', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab3_house, click: onClick.bind($data, 'setting_tab3', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab4_education, click: onClick.bind($data, 'setting_tab4', 0)"></span>
+            </li>
+            <li class="column">
+							<span data-bind="html: setting_tab5_insurance, click: onClick.bind($data, 'setting_tab5', 0)"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <main class="main" data-bind="visible: true" style="display: none">
+        <div class="content-frame">
+
+          <div class="content-panel grid flex-wrap wrapper-sm">
+            <div class="overflow">
+
+              <div class="table scroll">
+                <div class="caption">
+                  お子様の進路プラン
+                </div>
+                <table>
+                  <tr>
+                    <th class="spacer">
+                    </th>
+                    <th>
+                      <div class="center">
+                        幼稚園
+                      </div>
+                    </th>
+                    <th>
+                      <div class="center">
+                        小学校
+                      </div>
+                    </th>
+                    <th>
+                      <div class="center">
+                        中学校
+                      </div>
+                    </th>
+                    <th>
+                      <div class="center">
+                        高校
+                      </div>
+                    </th>
+                    <th>
+                      <div class="center">
+                        大学
+                      </div>
+                    </th>
+                    <th>
+                      <div class="center">
+                        総額
+                      </div>
+                    </th>
+                    <th class="button-area">
+                      <div class="center">
+                        詳細
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="child">
+                      <div class="nowrap" data-bind="html: edu1_title">
+                      </div>
+                    </th>
+                    <td>
+                      <div class="center" data-bind="text: edu1_yochien">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu1_syogakko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu1_cyugakko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu1_koko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center nowrap" data-bind="html: edu1_daigaku">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="right nowrap">
+                        <b class="font-large dynamic" data-bind="text: edu1_sum">795.0万円</b>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center">
+												<a class="button-icon edit" data-bind="click: openModal.bind($data, '#modal-1', 0), css: class_btn_0">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="child">
+                      <div class="nowrap" data-bind="html: edu2_title">
+                      </div>
+                    </th>
+                    <td>
+                      <div class="center" data-bind="text: edu2_yochien">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu2_syogakko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu2_cyugakko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu2_koko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center nowrap" data-bind="html: edu2_daigaku">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="right nowrap">
+                        <b class="font-large dynamic" data-bind="text: edu2_sum">795.0万円</b>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center">
+												<a class="button-icon edit" data-bind="click: openModal.bind($data, '#modal-1', 1), css: class_btn_0">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="child">
+                      <div class="nowrap" data-bind="html: edu3_title">
+                      </div>
+                    </th>
+                    <td>
+                      <div class="center" data-bind="text: edu3_yochien">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu3_syogakko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu3_cyugakko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu3_koko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center nowrap" data-bind="html: edu3_daigaku">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="right nowrap">
+                        <b class="font-large dynamic" data-bind="text: edu3_sum">795.0万円</b>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center">
+												<a class="button-icon edit" data-bind="click: openModal.bind($data, '#modal-1', 2), css: class_btn_0">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="child">
+                      <div class="nowrap" data-bind="html: edu4_title">
+                      </div>
+                    </th>
+                    <td>
+                      <div class="center" data-bind="text: edu4_yochien">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu4_syogakko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu4_cyugakko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center" data-bind="text: edu4_koko">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center nowrap" data-bind="html: edu4_daigaku">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="right nowrap">
+                        <b class="font-large dynamic" data-bind="text: edu4_sum">795.0万円</b>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="center">
+												<a class="button-icon edit" data-bind="click: openModal.bind($data, '#modal-1', 3), css: class_btn_0">編集</a>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="total-amount">
+              <span class="label">総額</span>
+              <span class="amount" data-bind="text: edu_total_sum"></span>
+            </div>
+            <div class="notes" data-bind="visible: popup_edu_icon_comment" style="margin-top:15px;">
+              <ul class="list">
+                <li>
+                  <span data-bind="text: popup_edu_txt_comment"></span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </main>
+
+			<div class="modal">
+        <div class="modal-frame child-setting">
+          <div class="modal-title" data-bind="text: popup_edu_label_title">
+            第1子の設定編集
+          </div>
+          <div class="modal-content-wide is-scroll">
+            <div class="modal-panel">
+
+              <div class="birthday">
+                <label>誕生日</label>
+								<select class="pulldown" data-bind="options: spn_birth_yyyy, value: spn_birth_yyyy_v, event:{change: onSelect}"></select> 年
+                <select class="pulldown" data-bind="options: spn_birth_mm, value: spn_birth_mm_v, event:{change: onSelect}"></select> 月
+                <select class="pulldown" data-bind="options: spn_birth_dd, value: spn_birth_dd_v, event:{change: onSelect}"></select> 日
+              </div>
+
+              <div class="table select">
+                <table>
+                  <tr>
+                    <td rowspan="2">
+                      <div class="title">
+                        幼稚園・保育園
+                      </div>
+                      <div class="form kindergarten">
+                        <div class="radiolist">
+													<label><input type="radio" name="kindergarten" value="公立" data-bind="checked: btn_education_1_1, event:{change: onClick_1}" /><span>公立</span></label>
+													<label><input type="radio" name="kindergarten" value="私立" data-bind="checked: btn_education_1_1, event:{change: onClick_1}" /><span>私立</span></label>
+                        </div>
+                        <div class="turn">
+                          <select class="pulldown" data-bind="options: spn_kindergarten, value: spn_kindergarten_v, event:{change: onSelect}"></select> 年間
+                        </div>
+
+                      </div>
+                    </td>
+                    <td>
+                      <div class="title">
+                        小学校
+                      </div>
+                      <div class="form">
+                        <div class="radiolist">
+                          <label><input type="radio" name="primary-school" value="公立" data-bind="checked: btn_education_2_1, event:{change: onClick_1}" /><span>公立</span></label>
+                          <label><input type="radio" name="primary-school" value="私立" data-bind="checked: btn_education_2_1, event:{change: onClick_1}" /><span>私立</span></label>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="title">
+                        中学校
+                      </div>
+                      <div class="form">
+                        <div class="radiolist">
+                          <label><input type="radio" name="junior-high-school" value="公立" data-bind="checked: btn_education_3_1, event:{change: onClick_1}" /><span>公立</span></label>
+                          <label><input type="radio" name="junior-high-school" value="私立" data-bind="checked: btn_education_3_1, event:{change: onClick_1}" /><span>私立</span></label>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="title">
+                        高校
+                      </div>
+                      <div class="form">
+                        <div class="radiolist">
+                          <label><input type="radio" name="
+																				high-school" value="公立" data-bind="checked: btn_education_4_1, event:{change: onClick_1}" /><span>公立</span></label>
+                          <label><input type="radio" name="
+																				high-school" value="私立" data-bind="checked: btn_education_4_1, event:{change: onClick_1}" /><span>私立</span></label>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                      <div class="title">
+                        大学
+                      </div>
+                      <div class="form university">
+                        <div class="radiolist">
+                          <label><input type="radio" name="university-1" value="国公立" data-bind="checked: btn_education_5_1, event:{change: onClick_1}" /><span>国公立</span></label>
+                          <label><input type="radio" name="university-1" value="私立" data-bind="checked: btn_education_5_1, event:{change: onClick_1}" /><span>私立</span></label>
+                        </div>
+                        <div class="radiolist label-3">
+                          <label><input type="radio" name="university-2" value="文系" data-bind="checked: btn_education_6_1, event:{change: onClick_1}" /><span>文系</span></label>
+                          <label><input type="radio" name="university-2" value="理系" data-bind="checked: btn_education_6_2, event:{change: onClick_1}" /><span>理系</span></label>
+                          <label><input type="radio" name="university-2" value="医歯系" data-bind="checked: btn_education_6_3, event:{change: onClick_1}" /><span>医歯系</span></label>
+                        </div>
+                        <div class="radiolist">
+                          <label><input type="radio" name="university-3" value="自宅" data-bind="checked: btn_education_7_1, event:{change: onClick_1}" /><span>自宅</span></label>
+                          <label><input type="radio" name="university-3" value="下宿" data-bind="checked: btn_education_7_1, event:{change: onClick_1}" /><span>下宿</span></label>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="table result">
+                <table>
+                  <tr class="row-title">
+                    <th>
+                    </th>
+                    <th>
+                      <div class="center">
+                        幼稚園
+                      </div>
+                    </th>
+                    <th>
+                      <div class="center">
+                        小学校
+                      </div>
+                    </th>
+                    <th>
+                      <div class="center">
+                        中学校
+                      </div>
+                    </th>
+                    <th>
+                      <div class="center">
+                        高校
+                      </div>
+                    </th>
+                    <th>
+                      <div class="center">
+                        大学(初年度)
+                      </div>
+                    </th>
+                    <th>
+                      <div class="center">
+                        大学(翌年以降)
+                      </div>
+                    </th>
+                  </tr>
+                  <tr class="row-annual-sum">
+                    <th>
+                      <div class="center">
+                        年額
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right" data-bind="text: popup_edu2_label1">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="right" data-bind="text: popup_edu2_label2">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="right" data-bind="text: popup_edu2_label3">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="right" data-bind="text: popup_edu2_label4">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="right" data-bind="text: popup_edu2_label5">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="right" data-bind="text: popup_edu2_label6">
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="total-expenses">
+                <p class="font-xsmall">
+                <!--
+                  文部科学省：「子供の学習費調査」（平成20年度）<br />
+                  日本政策金融公庫：「教育費負担の実態調査結果（勤務者世帯）」（平成22年度）
+                  -->
+                </p>
+                <div class="total-info">
+                  <span class="label">教育費合計</span>
+                  <span class="expenses" data-bind="text: popup_edu_label_sum"></span>
+                </div>
+              </div>
+
+              <div class="button-wrapper">
+                <a class="button-modal" data-bind="click: deleteData">この設定を削除する</a>
+                <a class="button-modal decide" data-bind="click: saveData">この設定を変更する</a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-10" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            ご利用に際しての留意事項
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+
+				<div class="grid">
+					<div class="column" data-bind="foreach: screenMessageL">
+						<div class="font-xlarge" data-bind="if: st_title1">
+							<p>
+								<b class="dynamic" data-bind="text: st_title1">ご利用に際して</b>
+							</p>
+						</div>
+						<div data-bind="if: st_title2">
+							<p data-bind="text: st_title2">
+							</p>
+						</div>
+						<div>
+							<p data-bind="text: st_message">
+							</p>
+						</div>
+					</div>
+					<div class="column" data-bind="foreach: screenMessageR">
+						<div class="font-xlarge" data-bind="if: st_title1">
+							<p>
+								<b class="dynamic" data-bind="text: st_title1">ご利用に際して</b>
+							</p>
+						</div>
+						<div data-bind="if: st_title2">
+							<p data-bind="text: st_title2">
+							</p>
+						</div>
+						<div>
+							<p data-bind="text: st_message">
+							</p>
+						</div>
+					</div>
+				</div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+			<div id="modal-11" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            設定
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+
+              <div class="table">
+                <table>
+                  <tr>
+                    <th>
+                      <div>
+                        カンパニーID
+                      </div>
+                    </th>
+                    <td>
+                      <div class="right">
+												<span data-bind="text: id_company"></span>
+											</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="button-wrapper fixed">
+                <a class="button-modal" onclick="LMPS.closeModal();">戻る</a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+      <div id="modal-20" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            使い方
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+              
+              <div class="grid">
+                <div class="column">
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル1</b>
+                    </p>
+                  </div>
+                  <div data-bind="if: st_title2">
+                    <p data-bind="text: st_title2">
+                    </p>
+                  </div>
+                  <div>
+                    <p data-bind="text: st_message">
+                      この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この 文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章 はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+                    </p>
+                  </div>
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル2</b>
+                    </p>
+                  </div>
+                  <div data-bind="if: st_title2">
+                    <p data-bind="text: st_title2">
+                    </p>
+                  </div>
+                  <div>
+                    <p data-bind="text: st_message">
+                      この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この 文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章 はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダ ミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーで す。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文 字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の 大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大き さ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、 量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、 字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字 間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、 行間等を確認するために入れています。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

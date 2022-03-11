@@ -1,0 +1,9 @@
+﻿[
+{"id_syotokuzei":"1","sm_upper":"99999999","sm_lower":"40000000","ra_kojo":"0.45","sm_kojo":"4796000"}
+,{"id_syotokuzei":"2","sm_upper":"40000000","sm_lower":"18000000","ra_kojo":"0.4","sm_kojo":"2796000"}
+,{"id_syotokuzei":"3","sm_upper":"18000000","sm_lower":"9000000","ra_kojo":"0.33","sm_kojo":"1536000"}
+,{"id_syotokuzei":"4","sm_upper":"9000000","sm_lower":"6950000","ra_kojo":"0.23","sm_kojo":"636000"}
+,{"id_syotokuzei":"5","sm_upper":"6950000","sm_lower":"3300000","ra_kojo":"0.2","sm_kojo":"427500"}
+,{"id_syotokuzei":"6","sm_upper":"3300000","sm_lower":"1950000","ra_kojo":"0.1","sm_kojo":"97500"}
+,{"id_syotokuzei":"7","sm_upper":"1950000","sm_lower":"0","ra_kojo":"0.05","sm_kojo":"0"}
+]

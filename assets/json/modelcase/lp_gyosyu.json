@@ -1,0 +1,15 @@
+﻿[
+{"id_gyosyu":"0","st_gyosyu":"(未設定)","no_display":"1"}
+,{"id_gyosyu":"1","st_gyosyu":"鉱業","no_display":"2"}
+,{"id_gyosyu":"2","st_gyosyu":"建設業","no_display":"3"}
+,{"id_gyosyu":"3","st_gyosyu":"製造業","no_display":"4"}
+,{"id_gyosyu":"4","st_gyosyu":"電気・ガス・水道業","no_display":"5"}
+,{"id_gyosyu":"5","st_gyosyu":"情報・通信業","no_display":"6"}
+,{"id_gyosyu":"6","st_gyosyu":"卸売・小売業","no_display":"7"}
+,{"id_gyosyu":"7","st_gyosyu":"金融・保険業","no_display":"8"}
+,{"id_gyosyu":"8","st_gyosyu":"運輸業","no_display":"9"}
+,{"id_gyosyu":"9","st_gyosyu":"不動産業","no_display":"10"}
+,{"id_gyosyu":"10","st_gyosyu":"生活関連サービス業","no_display":"11"}
+,{"id_gyosyu":"11","st_gyosyu":"教育サービス業","no_display":"12"}
+,{"id_gyosyu":"12","st_gyosyu":"専門・技術サービス業","no_display":"13"}
+]

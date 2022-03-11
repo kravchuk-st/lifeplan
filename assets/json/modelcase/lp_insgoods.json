@@ -1,0 +1,13 @@
+﻿[
+{"id_goods":"1","st_goodsname":"終身保険","id_insclass":"1","id_hengaku":"0","id_syushin":"1","id_haraikomi":"1","st_hokenkin":"保険金","st_kikan1":"保険期間","st_kikan2":"","ra_henrei":"0"}
+,{"id_goods":"2","st_goodsname":"定期保険","id_insclass":"2","id_hengaku":"0","id_syushin":"0","id_haraikomi":"1","st_hokenkin":"保険金","st_kikan1":"保険期間","st_kikan2":"","ra_henrei":"0"}
+,{"id_goods":"3","st_goodsname":"個人年金保険","id_insclass":"5","id_hengaku":"0","id_syushin":"0","id_haraikomi":"1","st_hokenkin":"年金額","st_kikan1":"受取開始","st_kikan2":"年金期間","ra_henrei":"0"}
+,{"id_goods":"4","st_goodsname":"収入保障保険","id_insclass":"3","id_hengaku":"0","id_syushin":"0","id_haraikomi":"1","st_hokenkin":"年金額","st_kikan1":"保険期間","st_kikan2":"","ra_henrei":"0"}
+,{"id_goods":"5","st_goodsname":"学資保険","id_insclass":"4","id_hengaku":"0","id_syushin":"0","id_haraikomi":"1","st_hokenkin":"学資金","st_kikan1":"保険期間","st_kikan2":"","ra_henrei":"0"}
+,{"id_goods":"6","st_goodsname":"養老保険（一時払）","id_insclass":"4","id_hengaku":"0","id_syushin":"0","id_haraikomi":"0","st_hokenkin":"満期金","st_kikan1":"保険期間","st_kikan2":"","ra_henrei":"0"}
+,{"id_goods":"7","st_goodsname":"終身保険（一時払）","id_insclass":"1","id_hengaku":"0","id_syushin":"1","id_haraikomi":"0","st_hokenkin":"保険金","st_kikan1":"保険期間","st_kikan2":"","ra_henrei":"0"}
+,{"id_goods":"8","st_goodsname":"終身医療保険","id_insclass":"6","id_hengaku":"0","id_syushin":"1","id_haraikomi":"1","st_hokenkin":"給付金","st_kikan1":"保険期間","st_kikan2":"","ra_henrei":"0"}
+,{"id_goods":"9","st_goodsname":"ガン保険","id_insclass":"7","id_hengaku":"0","id_syushin":"1","id_haraikomi":"1","st_hokenkin":"給付金","st_kikan1":"保険期間","st_kikan2":"","ra_henrei":"0"}
+,{"id_goods":"10","st_goodsname":"火災保険","id_insclass":"8","id_hengaku":"0","id_syushin":"0","id_haraikomi":"1","st_hokenkin":"","st_kikan1":"","st_kikan2":"","ra_henrei":"0"}
+,{"id_goods":"11","st_goodsname":"自動車保険","id_insclass":"8","id_hengaku":"0","id_syushin":"0","id_haraikomi":"1","st_hokenkin":"","st_kikan1":"","st_kikan2":"","ra_henrei":"0"}
+]

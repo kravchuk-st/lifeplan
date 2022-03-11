@@ -1,0 +1,208 @@
+.dynamic {
+  color: #1e5472;
+}
+
+.modal .dynamic::before {
+  background-color: #1e5472;
+}
+
+.total-top .header, .header,
+.burger__line,
+a.button, span.button, button.button, input.button {
+  background: #268cbf;
+}
+
+.burger__btn.burger__btn_open{
+  background-color: #268cbf;
+}
+
+a.button.is-on, span.button.is-on, button.button.is-on, input.button.is-on,
+a.button-blank.is-on, span.button-blank.is-on, button.button-blank.is-on, input.button-blank.is-on{
+  background: #235471;
+}
+
+.total-top .menu-lists.owl-carousel .owl-wrapper.owl-item .menu-item .figure::before,
+.total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item .figure::before {
+  background: #DAF0FA;
+}
+
+.top .content-panel .taget-visual .visual::before {
+  background: #dbf0fa;
+}
+
+.icon{
+  fill: #268cbf;
+}
+
+a.button-icon.edit, span.button-icon.edit, button.button-icon.edit, input.button-icon.edit,
+a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-icon.add,
+a.button-modal-close::before, span.button-modal-close::before, button.button-modal-close::before, input.button-modal-close::before {
+  filter: invert(61%) sepia(32%) saturate(3015%) hue-rotate(172deg) brightness(79%) contrast(83%);
+}
+
+a.button-icon.is-on,
+span.button-icon.is-on,
+button.button-icon.is-on,
+input.button-icon.is-on,
+a.button-modal-close.is-on::before, span.button-modal-close.is-on::before, button.button-modal-close.is-on::before, input.button-modal-close.is-on::before {
+  filter: invert(25%) sepia(9%) saturate(3649%) hue-rotate(159deg) brightness(97%) contrast(82%);
+}
+
+a.button-icon.edit.is-on,
+span.button-icon.edit.is-on,
+button.button-icon.edit.is-on,
+input.button-icon.edit.is-on {
+  filter: invert(25%) sepia(9%) saturate(3649%) hue-rotate(159deg) brightness(97%) contrast(82%);
+}
+
+.question-btn{
+  color: #268cbf;
+}
+
+.total-top .menu-lists.owl-carousel .owl-controls .owl-prev, .total-top .menu-lists.owl-carousel .owl-controls .owl-next {
+  background: #268cbf;
+}
+
+.top .content-panel .taget-info .panel-entry .title::before {
+  background: #dbf0fa;
+}
+
+.navigation .content-frame .grid .column a.current, .navigation .content-frame .grid .column > span.current,
+.navigation .content-frame .grid .column a.current::before, .navigation .content-frame .grid .column > span.current::before{
+  color: #fff;
+}
+
+.blocklist ul li.settled {
+  background: #f0faff;
+}
+
+
+.navigation .content-frame .grid .column a.current::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: url(../img/svg/blue/header.svg) top left no-repeat;
+  background-size: contain;
+}
+
+.navigation .content-frame .grid .column a.current {
+  background: #235471;
+}
+
+
+.tab .tab-button-wrap .tab-button.current,
+.modal .modal-frame .modal-title {
+  background: #1e5472;
+}
+
+.tab .tab-button-wrap {
+  border-bottom: 4px solid #1e5472;
+}
+
+.table table th {
+  background: #dbf0fa;
+}
+
+a.button-blank, span.button-blank, button.button-blank, input.button-blank {
+  background: #328cbd;
+}
+
+.insurance .protection .title,
+.insurance .protection .content .content-inner .fee table th,
+.education-plane .total-amount,
+.modal .child-setting .table.select table td .title,
+.modal .child-setting .birthday label,
+.modal .child-setting .total-expenses .total-info,
+.modal .child-setting .table.result .row-annual-sum th{
+  background-color: #dbf0fa;
+}
+
+.modal-content,
+.modal .modal-frame .modal-content-wide{
+  background-color: #f0faff;
+}
+
+a.button-modal, span.button-modal, button.button-modal, input.button-modal {
+  border: 1px solid #328cbd;
+  color: #328cbd;
+}
+
+a.button.decide, a.button-modal.decide, span.button-modal.decide, button.button-modal.decide, input.button-modal.decide {
+  background: #328cbd;
+}
+
+.radiolist label input[type="radio"]:checked + span{
+  background: #1e5472;
+}
+
+.radiolist label > span {
+  color: #328cbd;
+}
+
+a.button-modal.is-on, span.button-modal.is-on, button.button-modal.is-on, input.button-modal.is-on {
+  background: #dbf0fa;
+}
+
+a.button.decide.is-on, a.button-modal.decide.is-on, span.button-modal.decide.is-on, button.button-modal.decide.is-on, input.button-modal.decide.is-on{
+  background: #1e5472;
+}
+
+.total-top .main-title {
+  background: url(../img/update/2x/blue/main.png) no-repeat center center;
+  background-size: 80% auto;
+}
+
+.tab .caption::before,
+.table .caption::before {
+  border-top: 4px solid #333333;
+  border-bottom: 4px solid #333333;
+  border-left: 4px solid #333333;
+}
+
+.nav-pills .nav-link, .nav-pills .show>.nav-link {
+  color: #268CBF;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #175473;
+  border-bottom: 4px solid #175473;
+  font-weight: bold;
+}
+
+
+.mobile_nav .figure::before {
+  background: #DAF0FA;
+}
+
+.diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .title{
+  background-color: #1e5472;
+}
+
+.diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .content .select-info .button-panel-prev.button-panel-prev::before, .diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .content .select-info .button-panel-next.button-panel-prev::before {
+  border-right: 20px solid #328cbd;
+}
+
+.diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .content .select-info .button-panel-prev.button-panel-next::before, .diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .content .select-info .button-panel-next.button-panel-next::before{
+  border-left: 20px solid #328cbd;
+}
+
+.is-show-scrollbar::-webkit-scrollbar-thumb {
+  background: #b7d3e1;
+}
+
+.tab-period a.current {
+  background-color: #1e5472;
+}
+
+.tab-period a:not(.current).is-on{
+  background-color: #3b8cbb;
+}
+
+@media (max-width: 768px) {
+  .total-top .main-title {
+    background-image: url(../img/update/blue/main.png);
+  }
+}

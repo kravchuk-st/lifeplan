@@ -1,0 +1,3 @@
+﻿[
+{"age_life_m":"90","age_life_w":"90","ra_cpi":"0.01","ra_cpi_kyouiku":"0.02","ra_cpi_chika":"0.01","ra_baseup_kako":"0.002","ra_baseup_fu":"0.002","ra_yield":"0.0002","sm_rent":"80000","no_rent_exp":"0.5","sm_housecost":"30000000","ra_loan":"0.012","ra_housecost_early":"0.03","ra_housecost_year":"0.006","sm_marriagehelp":"1500000","ra_livingcost_many":"1","ra_livingcost_normal":"0.85","ra_livingcost_few":"0.7","ra_livingcost_alone":"0.7","age_upper":"100","age_lower":"16","sm_yobi":"2000000","ra_kotei":"2"}
+]
