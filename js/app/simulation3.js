@@ -205,7 +205,7 @@ window.onload = function() {
 				L.push(screenMessage[i]);
 			} else if ("R" === screenMessage[i].id_message) {
 				R.push(screenMessage[i]);
-			}
+			} 
 		}
 		this.screenMessageL = ko.observableArray(L);
 		this.screenMessageR = ko.observableArray(R);

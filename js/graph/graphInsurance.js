@@ -70,7 +70,7 @@ LIFEPLAN.graph.GraphInsurance = (function () {
 		// グラフキャプションの描画
 		// (年齢) の描画
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont4(context, 26);
 		context.closePath();
 		context.fillText("(年齢)", 0, 0);
@@ -88,7 +88,7 @@ LIFEPLAN.graph.GraphInsurance = (function () {
 
 			// 年齢ラベル
 			context.beginPath();
-			context.fillStyle = self.brown;
+			context.fillStyle = self.black;
 			context = self.setFont3(context, 26);
 			context.fillText(v, xPoint, yPoint);
 
@@ -98,8 +98,8 @@ LIFEPLAN.graph.GraphInsurance = (function () {
 			var decoYPoint = yPoint + decoTriangle;
 			context.beginPath();
 			context.lineWidth = 0;
-			context.strokeStyle = self.brown;
-			context.fillStyle = self.brown;
+			context.strokeStyle = self.black;
+			context.fillStyle = self.black;
 			context.moveTo(decoXPoint, decoYPoint);
 			context.lineTo(decoXPoint + decoTriangle, decoYPoint);
 			context.lineTo(decoXPoint + (decoTriangle / 2), decoYPoint + decoTriangle);
@@ -107,91 +107,6 @@ LIFEPLAN.graph.GraphInsurance = (function () {
 			context.fill();
 			context.stroke();
 		});
-
-// 2021/02/24 ここから不要ロジック削除　種類毎に集約しないで個別に表示するようにする対応
-//		// 保険計算
-//		var hoken1_syushin_val1 = 0;
-//		var hoken2_teiki_age = 0;
-//		var hoken2_teiki_val1 = 0;
-//		var hoken2_teiki_val2 = 0;
-//		var hoken3_syunyuho_val1 = 0;
-//		var hoken3_syunyuho_val2 = 0;
-//		var hoken4_yoro_val1 = 0;
-//		var hoken5_nenkin_val1 = 0;
-//		var hoken6_iryo_val1 = 0;
-//		var hoken7_gan_val1 = 0;
-//
-//		var is_hai = (mTab === 2);
-//
-//		var Logic05 = JSON.parse(LIFEPLAN.conf.storage.getItem("Logic05"));
-//		var Logic09 = JSON.parse(LIFEPLAN.conf.storage.getItem("Logic09"));
-//
-//		var index = (function (is_hai) {
-//			var res = 0;
-//			var LPdate = DB.LPdate;
-//
-//			if (!MC.is_kekkon() && MC.age_hai > 0) {
-//				res = LPdate.getYear(MC.get_st_birthday(false)) - Logic05.mYYYYStart;
-//				if (res * -1 > MC.age_hai) {
-//					res = MC.age_hai * -1;
-//				}
-//			} else {
-//				res = LPdate.getYear(MC.get_st_birthday(is_hai)) - Logic05.mYYYYStart;
-//			}
-//			return res;
-//		})(is_hai);
-//
-//		// 保険の金額計算の定義
-//		var calc_hoken = function () {
-//
-//			hoken1_syushin_val1 = 0;
-//			hoken2_teiki_age = 0;
-//			hoken2_teiki_val1 = 0;
-//			hoken2_teiki_val2 = 0;
-//			hoken3_syunyuho_val1 = 0;
-//			hoken3_syunyuho_val2 = 0;
-//			hoken4_yoro_val1 = 0;
-//			hoken5_nenkin_val1 = 0;
-//			hoken6_iryo_val1 = 0;
-//			hoken7_gan_val1 = 0;
-//
-//			var vSyushin = [0];
-//			var vTeiki = [0];
-//			var vSyunyuHo = [0];
-//
-//			if (is_hai) {
-//				vSyushin = Logic09.vSyushin_hai;
-//				vTeiki = Logic09.vTeiki_hai;
-//				vSyunyuHo = Logic09.vSyunyuHo_hai;
-//			} else {
-//				vSyushin = Logic09.vSyushin_hon;
-//				vTeiki = Logic09.vTeiki_hon;
-//				vSyunyuHo = Logic09.vSyunyuHo_hon;
-//			}
-//
-//			if (mTab === 3) {
-//				return;
-//			}
-//
-//			hoken1_syushin_val1 = vSyushin[100 + index];
-//
-//			for (var i = 100 - 1; i >= MC.age_hon; i--) {
-//				if (hoken2_teiki_val1 === 0 && vTeiki[i + index] > hoken2_teiki_val1) {
-//					hoken2_teiki_val1 = vTeiki[i + index];
-//				} else if (vTeiki[i + index] > hoken2_teiki_val1) {
-//					hoken2_teiki_val2 = hoken2_teiki_val1;
-//					hoken2_teiki_val1 = vTeiki[i + index];
-//					hoken2_teiki_age = i + 1;
-//				}
-//				if (vSyunyuHo[i + index] > 0) {
-//					hoken3_syunyuho_val2 = vSyunyuHo[i + index];
-//				} else if (hoken3_syunyuho_val2 > 0 && vSyunyuHo[i + index] === 0) {
-//					hoken3_syunyuho_val1 = vSyunyuHo[i + 1 + index];
-//				}
-//			}
-//		};
-//		calc_hoken();
-// 2021/02/24 ここまで不要ロジック削除　種類毎に集約しないで個別に表示するようにする対応
 
 		// 加入保険分ループ
 		dataInsurance.some(function (v, i) {
@@ -401,7 +316,7 @@ LIFEPLAN.graph.GraphInsurance = (function () {
 
 					// '終身'という文字を入れる
 					context.beginPath();
-					context.fillStyle = self.brown;
+					context.fillStyle = self.black;
 					context = self.setFont(context, 28);
 					context.closePath();
 					context.fillText("終身", baseWidth - 40, yPoint + barYStart + 64);
@@ -460,7 +375,7 @@ LIFEPLAN.graph.GraphInsurance = (function () {
 
 					// 保険名称の表示
 					context.beginPath();
-					context.fillStyle = self.brown;
+					context.fillStyle = self.black;
 					context = self.setFont2(context, 28);
 					context.closePath();
 					context.fillText(hoken.st_goodsname, textTitleXPoint, textTitleYPoint);

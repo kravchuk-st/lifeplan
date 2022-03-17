@@ -87,6 +87,7 @@ window.onload = function() {
 		this.id_company = lp_setupinfo[0].id_company;
 		// サイドメニュー表示制御 END
 
+    this.current_year = new Date().getFullYear();
 	};
 
 	var viewModel = new ViewModel();

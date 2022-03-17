@@ -87,7 +87,7 @@ LIFEPLAN.graph.GraphNenkin = (function () {
 
 			// X軸
 			context.beginPath();
-			context.fillStyle = self.brown;
+			context.fillStyle = self.black;
 			context = self.setFont2(context, 20);
 			context.fillText("（万円）", 0, graphMargintTop);
 			meterAmount.some(function (v, i) {
@@ -102,7 +102,7 @@ LIFEPLAN.graph.GraphNenkin = (function () {
 				// 罫線
 				context.beginPath();
 				context.lineWidth = 1;
-				context.strokeStyle = self.brown;
+				context.strokeStyle = self.black;
 				context.moveTo(xPoint, yPoint);
 				context.lineTo(xPoint + graphSizeWidth, yPoint);
 				context.closePath();
@@ -110,7 +110,7 @@ LIFEPLAN.graph.GraphNenkin = (function () {
 
 				// ラベル
 				context.beginPath();
-				context.fillStyle = self.brown;
+				context.fillStyle = self.black;
 				context = self.setFont(context, 26);
 				context.fillText(v, xPoint - 10, yPoint);
 
@@ -129,7 +129,7 @@ LIFEPLAN.graph.GraphNenkin = (function () {
 				// 罫線
 				context.beginPath();
 				context.lineWidth = 1;
-				context.strokeStyle = self.brown;
+				context.strokeStyle = self.black;
 				context.moveTo(xPoint, yPoint);
 				context.lineTo(xPoint, yPoint + graphSizeHeight);
 				context.closePath();
@@ -138,7 +138,7 @@ LIFEPLAN.graph.GraphNenkin = (function () {
 				if (0 < i) {
 					context.beginPath();
 					context.lineWidth = 4;
-					context.strokeStyle = self.brown;
+					context.strokeStyle = self.black;
 					context.moveTo(xPoint, yPoint + graphSizeHeight);
 					context.lineTo(xPoint, yPoint + graphSizeHeight + 20);
 					context.closePath();
@@ -293,7 +293,7 @@ LIFEPLAN.graph.GraphNenkin = (function () {
 
 		// 外枠線を引く
 		context.beginPath();
-		context.strokeStyle = self.brown;
+		context.strokeStyle = self.black;
 		context.lineWidth = 5;
 		context.moveTo(graphMargintLeft, graphMargintTop);
 		context.lineTo(graphMargintLeft, graphMargintTop + graphSizeHeight);

@@ -59,14 +59,14 @@ LIFEPLAN.graph.GraphEvent = (function () {
 
 		// 罫線描画
 		context.beginPath();
-		context.strokeStyle = self.graphLinePaint;
+		context.strokeStyle = self.black;
 		context.lineWidth = 1;
 		context.moveTo(eventCaptionWidth, 0);
 		context.lineTo(eventCaptionWidth, canvasHeight);
 		context.stroke();
 
 		context.beginPath();
-		context.strokeStyle = self.graphLinePaint;
+		context.strokeStyle = self.black;
 		context.lineWidth = 1;
 		context.moveTo(eventCaptionWidth, eventBarHeight);
 		context.lineTo(canvasWidth, eventBarHeight);
@@ -74,7 +74,7 @@ LIFEPLAN.graph.GraphEvent = (function () {
 
 		for (var i = 2; i < 6; i++) {
 			context.beginPath();
-			context.strokeStyle = self.graphLinePaint;
+			context.strokeStyle = self.black;
 			context.lineWidth = 1;
 			context.moveTo(0, eventBarHeight * i);
 			context.lineTo(canvasWidth, eventBarHeight * i);
@@ -83,7 +83,7 @@ LIFEPLAN.graph.GraphEvent = (function () {
 
 		// ラベルの描画
 		context.beginPath();
-		context.fillStyle = self.graphTextPaint;
+		context.fillStyle = self.black;
 		context = self.setFont2(context, 28);
 		context.fillText("ご家族の", 3, 43);
 		context.fillText("イベント", 3, 77);
@@ -91,7 +91,7 @@ LIFEPLAN.graph.GraphEvent = (function () {
 		var koLabel = ["第１子", "第２子", "第３子", "第４子"];
 		for (var i = 2; i < 6; i++) {
 			context.beginPath();
-			context.fillStyle = self.graphTextPaint;
+			context.fillStyle = self.black;
 			context = self.setFont2(context, 28);
 			context.fillText(koLabel[i - 2], 10, eventBarHeight * i + 30);
 		};
@@ -128,11 +128,11 @@ LIFEPLAN.graph.GraphEvent = (function () {
 					// M_add_start
 					if (event === "結婚") {
 						context.beginPath();
-						context.fillStyle = 'rgb(164,100,62)';
+						context.fillStyle = self.graphLinePaint;
 						context.fillRect(eventBoxX, eventBoxY, eventBoxWidth, eventBoxHeight);
 	
 						context.beginPath();
-						context.fillStyle = 'rgb(255,255,255)';
+						context.fillStyle = self.white;
 						context = self.setFont5(context, 28);
 						context.fillText(event, eventTextX, eventTextY);
 						
@@ -146,7 +146,7 @@ LIFEPLAN.graph.GraphEvent = (function () {
 						context.fillRect(eventBoxX, eventBoxY, eventBoxWidth, eventBoxHeight);
 	
 						context.beginPath();
-						context.fillStyle = self.fixedEventTextPaint;
+						context.fillStyle = self.black;
 						context = self.setFont5(context, 28);
 						context.fillText(event, eventTextX, eventTextY);
 					}

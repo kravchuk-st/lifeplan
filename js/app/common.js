@@ -355,9 +355,9 @@ $(function () {
 
 			if (!LMPS.isValidityViewport()) {
 				if (Math.abs(window.orientation) === 0) {
-					winH = winH * 1920 / LMPS.portraitWidth;
+					// winH = winH * 1920 / LMPS.portraitWidth;
 				} else {
-					winH = winH * 1920 / LMPS.landscapeWidth;
+					// winH = winH * 1920 / LMPS.landscapeWidth;
 				}
 			}
 
@@ -367,7 +367,7 @@ $(function () {
 
 				if (0 < $topContent.size()) {
 					var offset = $topContent.offset().top;
-					$topContent.css('height', (winH - offset) + 'px');
+					// $topContent.css('height', (winH - offset) + 'px');
 				}
 			}
 		}).trigger('resize');

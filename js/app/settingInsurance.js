@@ -962,6 +962,11 @@ window.onload = function () {
 		// 設定
 		this.id_company = lp_setupinfo[0].id_company;
 		// サイドメニュー表示制御 END
+
+    this.goSimulation = function () {
+      window.location.href = "simulation1.html";
+    };
+    this.current_year = new Date().getFullYear();
 	};
 
 	var viewModel = new ViewModel();

@@ -1,7 +1,3 @@
-.dynamic {
-  color: #1e5472;
-}
-
 .modal .dynamic::before {
   background-color: #1e5472;
 }
@@ -55,8 +51,13 @@ input.button-icon.edit.is-on {
   filter: invert(25%) sepia(9%) saturate(3649%) hue-rotate(159deg) brightness(97%) contrast(82%);
 }
 
-.question-btn{
+.question-btn,
+.question-btn:hover{
   color: #268cbf;
+}
+
+.main-navigation .question-btn{
+  border-color: #268cbf;
 }
 
 .total-top .menu-lists.owl-carousel .owl-controls .owl-prev, .total-top .menu-lists.owl-carousel .owl-controls .owl-next {
@@ -78,12 +79,6 @@ input.button-icon.edit.is-on {
 
 
 .navigation .content-frame .grid .column a.current::before {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  width: 100%;
-  height: 20px;
   background: url(../img/svg/blue/header.svg) top left no-repeat;
   background-size: contain;
 }
@@ -155,13 +150,6 @@ a.button.decide.is-on, a.button-modal.decide.is-on, span.button-modal.decide.is-
   background-size: 80% auto;
 }
 
-.tab .caption::before,
-.table .caption::before {
-  border-top: 4px solid #333333;
-  border-bottom: 4px solid #333333;
-  border-left: 4px solid #333333;
-}
-
 .nav-pills .nav-link, .nav-pills .show>.nav-link {
   color: #268CBF;
 }
@@ -204,5 +192,10 @@ a.button.decide.is-on, a.button-modal.decide.is-on, span.button-modal.decide.is-
 @media (max-width: 768px) {
   .total-top .main-title {
     background-image: url(../img/update/blue/main.png);
+  }
+
+  .tab .caption::before,
+  .table .caption::before {
+    background: #DBF0FA;
   }
 }

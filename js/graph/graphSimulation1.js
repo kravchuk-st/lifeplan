@@ -96,7 +96,7 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 
 		// グリッド線を引く
 		context.beginPath();
-		context.strokeStyle = self.brown;
+		context.strokeStyle = self.black;
 		context.lineWidth = 1;
 
 		// グラフ縦のラベル表示金額
@@ -109,7 +109,7 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 			context.stroke();
 
 			context.beginPath();
-			context.fillStyle = self.brown;
+			context.fillStyle = self.black;
 			context = self.setFont(context, 24);
 			context.fillText(String(labelY).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,'), 110, y);
 			labelY = labelY - amountPerScale;
@@ -117,7 +117,7 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 
 		// キャプションラベル表示
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont(context, 22);
 		context.fillText("（万円）", 125, 17);
 
@@ -334,7 +334,7 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 
 		// 枠線を引く
 		context.beginPath();
-		context.strokeStyle = self.brown;
+		context.strokeStyle = self.black;
 		context.lineWidth = outsideLineWidth;
 		context.moveTo(graphMarginLeft, graphMarginTop);
 		context.lineTo(graphMarginLeft, (graphHeightOrigin + graphMarginTop));
@@ -348,7 +348,7 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 		context.fillRect(970, 508, 20, 20);
 
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont(context, 24);
 		context.fillText("支出", 1047, 517);
 
@@ -358,7 +358,7 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 		context.fillRect(1080, 508, 20, 20);
 
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont(context, 24);
 		context.fillText("収入", 1157, 517);
 
@@ -371,7 +371,7 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 		context.stroke();
 
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont(context, 24);
 		context.fillText("年間収支", 1330, 517);
 
@@ -384,47 +384,9 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 		context.stroke();
 
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont(context, 24);
 		context.fillText("金融資産残高", 1550, 517);
-
-// 2021/04/07 デバッグ用に安定資金残高をグラフに表示するときはコメントアウトをはずす
-//		// 2021/04/06 安定資金残高の線をグラフに追加（デバッグフラグの4bit目が1の場合）
-//		// 安定資金残高
-//		if ((fg_debug & 8) >> 3 === 1) { // デバッグフラグの4bit目が1
-//			context.beginPath();
-//			context.strokeStyle = 'rgb(255,0,255)';  // ピンク
-//			context.lineWidth = 2;
-//			context.setLineDash([5, 5]);  // 点線
-//			context.moveTo(1195, 542);
-//			context.lineTo(1225, 542);
-//			context.stroke();
-//
-//			context.beginPath();
-//			context.fillStyle = self.brown;
-//			context = self.setFont(context, 24);
-//			context.fillText("安定資金", 1330, 542);
-//			context.setLineDash([]);  // 実線に戻す
-//		}
-
-// 2021/04/07 デバッグ用に運用資金残高をグラフに表示するときはコメントアウトをはずす
-//		// 2021/04/06 運用資金残高の線をグラフに追加（デバッグフラグの4bit目が1の場合）
-//		// 運用資金残高
-//		if ((fg_debug & 8) >> 3 === 1) { // デバッグフラグの4bit目が1
-//			context.beginPath();
-//			context.strokeStyle = 'rgb(0,0,255)';  // 青
-//			context.lineWidth = 2;
-//			context.setLineDash([5, 5]);  // 点線
-//			context.moveTo(1365, 542);
-//			context.lineTo(1395, 542);
-//			context.stroke();
-//
-//			context.beginPath();
-//			context.fillStyle = self.brown;
-//			context = self.setFont(context, 24);
-//			context.fillText("運用資金", 1500, 542);
-//			context.setLineDash([]);  // 実線に戻す
-//		}
 
 		buttonDiagnosis(1260, 117, 80, 80, context, canvas);
 
@@ -434,15 +396,16 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 	var buttonDiagnosis = function (x, y, width, height, ctx, canvas) {
 
 		/* 円 #1 */
+    // TODO fix link position
 		ctx.beginPath();
 		ctx.globalAlpha = 0.3;
-		ctx.fillStyle = self.brown;
+		ctx.fillStyle = self.blue;
 		ctx.arc(x, y, 80, 0, Math.PI * 2, false);
 		ctx.fill();
 
 		ctx.beginPath();
 		ctx.globalAlpha = 1.0;
-		ctx.fillStyle = self.brown;
+		ctx.fillStyle = self.black;
 		ctx = self.setFont(ctx, 28);
 		ctx.fillText("診断", x + 28, y - 18);
 		ctx.fillText("結果", x + 28, y + 18);

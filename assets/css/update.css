@@ -11,28 +11,16 @@ h1{
 }
 
 .wrapper-sm {
-  max-width: 1280px;
+  max-width: 1310px;
   width: 100%;
   margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.col {
-  flex: 1 0 0%;
-}
-  
-.col-6 {
-  flex: 0 0 auto;
-  width: 50%;
-}
-  
-.col-12 {
-  flex: 0 0 auto;
-  width: 100%;
+.p-15 {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .btn-reset {
@@ -175,24 +163,10 @@ input.button-menu {
   transform: translateY(-50%);
 }
 
-.modal .dynamic {
-  padding-left: 25px;
-  position: relative;
-}
-
-.modal .dynamic::before {
-  content: "";
-  display: block;
-  height: 16px;
-  width: 16px;
-  background: #fff5dd;
-  border-radius: 50%;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  z-index: 1;
+.modal .modal-panel{
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 95%;
 }
 
 .offcanvas-start {
@@ -272,12 +246,22 @@ main .wrapper-sm .content-panel.grid{
   background-color: #a3a2a2;
 }
 
+.navigation .content-frame .grid .column a.current::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
 .tab .tab-button-wrap .tab-button.current {
   color: #fff;
   font-weight: 700;
 }
 
 .tab .tab-button-wrap .tab-button {
+  padding: 0 20px;
   font-weight: 400;
   color: #333333;
   background: #eaeaea;
@@ -307,6 +291,10 @@ main .wrapper-sm .content-panel.grid{
   border-top: 2px solid #bebebe;
 }
 
+.tab .caption.caption-fix {
+  min-height: 68%;
+}
+
 .blocklist ul {
   border: 2px solid #bebebe;
 }
@@ -316,15 +304,15 @@ main .wrapper-sm .content-panel.grid{
 }
 
 .insurance .protection .title {
-  border-top: 2px solid #bebebe;
-  border-right: 2px solid #bebebe;
-  border-left: 2px solid #bebebe;
+  border: none;
+}
+
+.protection .border {
+  border: 2px solid #bebebe !important;
 }
 
 .insurance .protection .content {
-  border-right: 2px solid #bebebe;
-  border-bottom: 2px solid #bebebe;
-  border-left: 2px solid #bebebe;
+  border: none;
 }
 
 .insurance .protection .content .content-inner .fee table th,
@@ -335,7 +323,7 @@ main .wrapper-sm .content-panel.grid{
 .education-plane .total-amount,
 .modal .cost-monthly .table {
   border: 2px solid #bebebe;
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 .insurance .protection .content .content-inner .fee table td.total .money{
@@ -611,7 +599,6 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
 }
 
 .diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel{
-  width: 222px;
   border: 1px solid #dfdfdf;
 }
 
@@ -653,7 +640,114 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
     height: calc(100vh - 120px);
 }
 
+.modal-question .column{
+  font-size: 2.9rem;
+  font-weight: 700;
+}
+
+.modal select.pulldown {
+  width: max-content;
+}
+
+
+footer {
+  font-size: 11px;
+  line-height: 1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  background-color: #fff;
+  box-shadow: 0px -3px 6px 0px rgba(34, 60, 80, 0.2);
+  padding: 20px 0;
+}
+
+footer p:first-child {
+  margin-bottom: 20px;
+}
+
+.button-diagnosis-sm {
+  display: block;
+  background: url(../img/update/btn_diagnosis_sm.png) center center no-repeat;
+  background-size: cover;
+  height: 60px;
+  width: 90%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.protection {
+  overflow: auto;
+}
+
+.tab .caption::before,
+.table .caption::before {
+  border-top: 4px solid #333333;
+  border-bottom: 4px solid #333333;
+  border-left: 4px solid #333333;
+}
+
+.main-navigation{
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.navigation {
+  margin-bottom: 0;
+}
+
+.main-navigation .navigation-title{
+  padding-left: 60px;
+  background: url(../img/icon_diagnosis.png) no-repeat left center;
+  font-weight: bold;
+  height: 76px;
+  line-height: 76px;
+}
+
+.main-navigation .question-btn{
+  border: 2px solid;
+}
+
+.graph canvas {
+  width: 100%;
+}
+
+.graph-view canvas {
+  width: 100%;
+}
+
+.event-list canvas {
+  width: 100%;
+}
+
+.modal-content-wide {
+  height: calc(100vh - 125px);
+  overflow: auto;
+}
+
+.table-bordered td, .table-bordered th{
+  border-width: 2px;
+  border-color: #bebebe;
+}
+
+.funds-panel.reserve .content p {
+  width: 50%;
+}
+
 @media (min-width: 769px) {
+  .graph-content {
+    padding-left: 15px;
+  }
+
+  .protection .offset {
+    margin: 0 20px;
+  }
+
   .header__center {
     margin-right: 10px;
     margin-left: 10px;
@@ -662,10 +756,25 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
   .header__right{
     min-width: 270px;
   }
+
+  .ml-80 {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1400px) {
   .diagnosis .header .header__title{
+    display: none;
+  }
+
+  .main-navigation{
+    display: none;
+  }
+}
+
+@media (max-width: 1625px) {
+  .header .navigation-title{
     display: none;
   }
 }
@@ -679,6 +788,25 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
 
   .modal .cost-monthly .table th {
     width: 35%;
+  }
+
+  .top .content-panel .taget-info .panel-entry .title span {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .diagnosis .header .header__right{
+    display: none;
+  }
+
+  .diagnosis .header .header-navigation .navigation-links{
+    display: none;
+  }
+
+  .diagnosis .header .header-navigation{
+    height: auto;
+    margin-bottom: 0;
   }
 }
 
@@ -694,6 +822,32 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
 }
 
 @media (max-width: 1279px) {
+  .diagnosis .header{
+    border-color: transparent;
+  }
+
+  .main-navigation .navigation-links{
+    width: 100%;
+    order: 4;
+  }
+
+  .navigation .content-frame .grid .column a.current::before {
+    bottom: -35px;
+    height: 35px;
+}
+
+  .tab-simulation .tab-button {
+    font-size: 18px;
+  }
+  
+  .protection {
+    font-size: 18px;
+  }
+
+  .insurance .protection .content .content-inner .fee table th > div, .insurance .protection .content .content-inner .fee table td > div {
+    font-size: 18px;
+  }
+  
   .content-panel {
     height: auto;
   }
@@ -717,6 +871,10 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
   .modal-frame .grid {
     flex-direction: column;
     gap: 40px;
+  }
+
+  .table table th > div.add-button, .table table td > div.add-button {
+    padding-right: 0;
   }
 }
 
@@ -744,10 +902,6 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
   main .wrapper-sm .content-panel.grid {
     flex-direction: column;
   }
-  .table.add-dummycaption table {
-    margin-left: 0;
-    width: 100%;
-  }
 
   .button-wrapper {
     text-align: center;
@@ -756,9 +910,29 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
   h1 {
     font-size: 24px;
   }
+
+  .modal .event-expenses .panel-wrapper .event-list {
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+  }
+
+  .modal .event-expenses .panel-wrapper .event-list li:nth-of-type(2n){
+    border-right: none;
+  }
+
+  .modal .event-expenses .panel-wrapper .event-list li:nth-of-type(3n):not(:last-child){
+    border-right: 2px solid #d8c2a4;
+  }
+
+  .modal .event-expenses .panel-wrapper .event-list li:nth-of-type(4){
+    border-bottom: 2px solid #d8c2a4;
+  }
 }
 
 @media (max-width: 1100px) {
+  .tab-simulation .tab-button {
+    font-size: 18px !important;
+  }
+
   .total-top .menu-lists.owl-carousel .owl-wrapper.owl-item .menu-item .generation,
   .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item .generation {
     font-size: 2.7rem;
@@ -786,11 +960,19 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
     height: 60px;
     line-height: 60px;
   }
+
+  .diagnosis input.textarea.middle{
+    width: 50%;
+  }
+
+  .diagnosis a.button-modal.decide{
+    margin-top: 85px;
+  }
 }
 
 @media (max-width: 991px) {
-  .header__right{
-    min-width: 220px;
+  .insurance .protection .content .content-inner .fee table th > div, .insurance .protection .content .content-inner .fee table td > div {
+    font-size: 16px;
   }
 
   .top .content-panel .taget-info {
@@ -820,7 +1002,101 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
   }
 }
 
+@media (max-width: 815px) {
+  .modal .event-expenses .panel-wrapper .event-list {
+    grid-template-columns: 1fr;
+  }
+
+  .modal .event-expenses .panel-wrapper .event-list li:nth-of-type(5){
+    border-bottom: 2px solid #d8c2a4;
+  }
+
+  .modal .event-expenses .panel-wrapper .event-list li{
+    border-right: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .blocklist {
+    padding-right: 15px;
+  }
+
+  .tab-simulation {
+    width: calc(50% - 55px) !important;
+  }
+
+  .protection {
+    padding-left: 15px;
+  }
+}
+
+
 @media (max-width: 768px) {
+  .diagnosis .diagnosis-plan .funds-wrapper .funds-total {
+    font-size: 20px;
+  }
+
+  .diagnosis .diagnosis-plan .plan-title,
+  .diagnosis .diagnosis-plan .funds-wrapper .funds-total .amount {
+    font-size: 26px;
+  }
+
+  .table:not(.scroll) tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .burger__btn,
+  .question-btn{
+    height: 40px;
+  }
+
+  .font-large {
+    font-size: 2.5rem;
+  }
+  .diagnosis .diagnosis-funds .graph-wrapper {
+    display: block;
+  }
+
+  .diagnosis .diagnosis-funds .graph-wrapper .graph-condition {
+    width: 100%;
+  }
+
+  .graph-content {
+    width: 100%;
+    display: block;
+    margin-top: 40px;
+  }
+
+  .question-btn .icon {
+    height: 25px;
+    width: 25px;
+  }
+
+  .education-plane .total-amount {
+    margin-bottom: 50px;
+  }
+
+  .tab .tab-button-wrap .tab-button {
+    padding: 0 35px;
+  }
+
+  .blocklist ul li {
+    font-size: 18px;
+  }
+
+  .tab-simulation .tab-button {
+    font-size: 20px !important;
+  }
+
+  .protection  {
+    margin-top: 40px;
+  }
+
+  .notes {
+    font-size: 20px;
+  }
+
   .header .header-frame,
   .header__left {
     flex-direction: row-reverse;
@@ -837,10 +1113,6 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
   }
 
   .home{
-    display: none;
-  }
-
-  .menu-lists-wrapper {
     display: none;
   }
 
@@ -894,37 +1166,47 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
     position: relative;
   }
 
+  .modal input.textarea,
+  .modal select.pulldown,
   .modal .table table th > div, .modal .table table td > div{
-    font-size: 3.2rem;
+    font-size: 2.2rem;
   }
 
   .wrapper-sm {
-    padding: 0 20px;
+    padding: 0 15px;
   }
 
   .tab .caption + .tab-button-wrap {
-    margin-left: 60px;
-    width: calc(100% - 60px);
+    margin-left: 0;
+    width: 100%;
   }
   
   .tab .caption + .tab-button-wrap + .tab-content-wrap,
   .table .caption + table {
-    margin-left: 60px;
-    width: calc(100% - 60px);
+    margin-left: 0;
+    width: 100%;
   }
 
   .table .caption,
   .tab .caption {
     font-size: 22px;
+    margin-bottom: 15px;
+    display: block;
+    position: relative;
+    top: 0;
+    writing-mode: unset;
+    padding-left: 15px;
   }
 
   .tab .caption::before,
   .table .caption::before {
-    left: 40px;
-  }
-
-  .tab .caption {
-    top: 34px;
+    content: '';
+    left: 0;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
   }
 
   .tab .tab-button-wrap .tab-button {
@@ -945,6 +1227,31 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
   .font-xsmall {
     font-size: 20px;
   }
+
+  main {
+    margin-bottom: 130px;
+  }
+
+  main.top-main {
+    margin-bottom: 60px;
+  }
+
+  .diagnosis .modal .event-expenses .panel-wrapper .entry-form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .diagnosis .modal .event-expenses .panel-wrapper .entry-form > div.age {
+    border-right: none;
+    border-bottom: 2px solid #a4643e;
+  }
+
+  .diagnosis .modal .event-expenses .panel-wrapper .entry-form > div {
+    padding: 15px 20px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
 }
 
 .overflow {
@@ -952,6 +1259,17 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
 }
 
 @media (max-width: 576px) {
+  .education-plane .total-amount {
+    padding: 0 5px;
+  }
+  .education-plane .total-amount .label {
+    margin-right: 10px;
+  }
+  .education-plane .total-amount .label,
+  .education-plane .total-amount .amount {
+    font-size: 24px;
+  }
+
   .modal .cost-monthly .table th {
     width: 100%;
   }
@@ -964,10 +1282,7 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
     overflow: auto;
   }
 
-  .table:not(.scroll) tr {
-    display: flex;
-    flex-direction: column;
-  }
+
 
   .table.scroll {
     overflow: auto;
@@ -992,14 +1307,28 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
     border-bottom: 2px solid #bebebe;
   }
 
+  .tab-content[data-tabcontent='tab2'] .table table{
+    border: 2px solid #bebebe;
+    border-collapse: collapse;
+  }
+
+  .tab-content[data-tabcontent='tab2'] .table table th{
+    border-left: none;
+    border-right: none;
+  }
+
+  .tab-content[data-tabcontent='tab2'] .table table td{
+    border-left: none;
+    border-right: none;
+  }
+
   .button-wrapper {
     padding-top: 0;
   }
 
   .modal .table table td,
   .modal .table table th{
-    border-left: none;
-    border-right: none;
+    border: none;
   }
 
   .modal .table table td > div.right{
@@ -1020,8 +1349,40 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
     border-left: none
   }
 
+  .modal select.pulldown {
+    width: 100%;
+  }
+
+  a.button-modal, span.button-modal, button.button-modal, input.button-modal {
+    font-size: 3.0rem;
+    height: 85px;
+    line-height: 85px;
+}
+
   .navigation .content-frame .grid .column a,
   .navigation .content-frame .grid .column > span {
     font-size: 15px;
+  }
+
+  .diagnosis .main-navigation{
+    padding-top: 10px;
+  }
+
+  .diagnosis .main-navigation .navigation-title{
+    margin-left: 10px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+  }
+
+  .question-btn {
+    font-size: 12px;
+    margin-right: 10px;
+    padding: 0 5px;
+    column-gap: 5px;
+  }
+
+  .diagnosis input.textarea.middle {
+    width: 100%;
   }
 }

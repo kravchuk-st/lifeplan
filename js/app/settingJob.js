@@ -2497,9 +2497,14 @@ window.onload = function() {
 		this.screenMessageL = ko.observableArray(L);
 		this.screenMessageR = ko.observableArray(R);
 
-		// 設定
+   	// 設定
 		this.id_company = lp_setupinfo[0].id_company;
 		// サイドメニュー表示制御 END
+
+    this.goSimulation = function () {
+      window.location.href = "simulation1.html";
+    };
+    this.current_year = new Date().getFullYear();
 	};
 
 
@@ -2583,5 +2588,4 @@ window.onload = function() {
 
 		return res;
 	}
-
 };

@@ -86,7 +86,6 @@ body {
 .header-frame,
 .content-frame {
   margin: 0 auto;
-  /* width: 1920px; */
 }
 
 .header-frame.content-frame,
@@ -286,7 +285,6 @@ b {
   line-height: 1.3;
   text-align: left;
   vertical-align: middle;
-  width: 230px;
 }
 
 .table table th.required > div {
@@ -353,7 +351,7 @@ b {
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
-  /* white-space: nowrap; */
+  white-space: nowrap;
 }
 
 .table .caption {
@@ -1104,11 +1102,16 @@ input.button-end.is-on {
   font-size: 3.2rem;
   font-weight: bold;
   height: 50px;
-  margin-right: 10px;
+  margin-right: 15px;
   text-align: center;
   max-width: 50%;
-  padding: 0 10px;
+  padding: 0 45px;
   overflow: visible;
+}
+
+.tab .tab-button-wrap.tab-simulation .tab-button {
+  margin-right: 10px;
+  padding: 0 15px;
 }
 
 .tab .tab-button-wrap .tab-button.current {
@@ -1202,12 +1205,6 @@ input.button-end.is-on {
 
 .no-flex .tab .caption + .tab-button-wrap {
   width: calc(100% - 80px);
-}
-
-.tab-period {
-  display: table;
-  height: 55px;
-  width: 420px;
 }
 
 .tab-period a {
@@ -1530,8 +1527,7 @@ input.button-end.is-on {
 
 .navigation .content-frame .grid .column a:not(.current).is-on,
 .navigation .content-frame .grid .column > span:not(.current).is-on {
-  background: -webkit-linear-gradient(top, #e4692c, #ca5419);
-  background: linear-gradient(to bottom, #e4692c, #ca5419);
+  background: linear-gradient(to bottom, #efefef, #e5e5e5);
 }
 
 .navigation .content-frame .grid .column a.current,
@@ -1648,7 +1644,7 @@ input.button-end.is-on {
 }
 
 .modal .modal-frame .modal-content {
-  padding: 30px 0;
+  padding: 50px 0;
 }
 
 .modal .modal-frame .modal-content-wide {
@@ -1664,7 +1660,7 @@ input.button-end.is-on {
 
 .modal .button-wrapper {
   position: relative;
-  padding: 26px 0 30px;
+  padding: 26px 0 50px;
   text-align: center;
 }
 
@@ -1686,8 +1682,7 @@ input.button-end.is-on {
 }
 
 .is-scroll {
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -1719,15 +1714,8 @@ input.button-end.is-on {
   width: 100%;
   min-height: 200px;
   height: calc(100vh - 630px);
+  max-height: 500px;
   background: url(../img/main_logo.png) no-repeat center center;
-}
-
-.total-top .menu-lists-wrapper {
-  /* position: absolute; */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
 }
 
 .total-top .menu-lists.owl-carousel {
@@ -2263,14 +2251,6 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   width: 700px;
 }
 
-.insurance .protection {
-  position: absolute;
-  right: -820px;
-  top: 0;
-  padding-top: 54px;
-  width: 780px;
-}
-
 .insurance .protection .title {
   border-top: 2px solid #e5d3b1;
   border-right: 2px solid #e5d3b1;
@@ -2286,7 +2266,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   border-right: 2px solid #e5d3b1;
   border-bottom: 2px solid #e5d3b1;
   border-left: 2px solid #e5d3b1;
-  height: 660px;
+  max-height: 660px;
   background: #fff;
 }
 
@@ -2351,17 +2331,12 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
-  /* display: table; */
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .diagnosis .diagnosis-funds .graph-wrapper .graph-condition {
   width: 264px;
-  display: table-cell;
-  vertical-align: top;
-}
-
-.diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel {
-  width: 220px;
 }
 
 .diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .title {
@@ -2491,7 +2466,6 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 }
 
 .diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel.event-expense .content {
-  height: 286px;
   padding: 20px;
   display: flex;
   align-items: flex-start;
@@ -2503,28 +2477,15 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   margin-top: 30px;
 }
 
-.diagnosis .diagnosis-funds .graph-wrapper .graph-content {
-  position: relative;
-  display: table-cell;
-  vertical-align: top;
-  width: 1571px;
-}
-
 .diagnosis .diagnosis-funds .graph-wrapper .graph-content .content-tab {
-  position: absolute;
-  right: 0;
-  top: -24px;
+  float: right;
 }
 
-.diagnosis .diagnosis-funds .graph-wrapper .graph-content .graph-view {
-  min-height: 660px;
-}
 
 .diagnosis .diagnosis-funds .graph-wrapper .graph-content .event-list {
   background: #fff5dd;
   border-bottom: 4px solid #a4643e;
   border-top: 4px solid #a4643e;
-  height: 254px;
   margin-top: 20px;
   overflow-y: auto;
 }
@@ -2610,6 +2571,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 
 .diagnosis .diagnosis-plan .funds-wrapper {
   padding-top: 25px;
+  overflow: auto;
 }
 
 .diagnosis .diagnosis-plan .funds-wrapper .funds-total {
@@ -2670,7 +2632,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 
 .diagnosis .diagnosis-plan .funds-wrapper .funds-panel-wrapper {
   margin: 0 auto;
-  width: 1920px;
+  width: 1590px;
 }
 
 .diagnosis .diagnosis-plan .funds-wrapper .funds-panel-wrapper:after {
@@ -2682,7 +2644,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 .diagnosis .diagnosis-plan .funds-wrapper .funds-panel-wrapper .funds-panel {
   float: left;
   position: relative;
-  width: 960px;
+  /* width: 960px; */
 }
 
 .diagnosis .diagnosis-plan .funds-wrapper .funds-panel-wrapper .funds-panel .title {
@@ -3048,6 +3010,9 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   margin: 0 auto;
   width: 100%;
   height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(350px, 1fr));
+
 }
 
 .modal .event-expenses .panel-wrapper .event-list:after {
@@ -3062,11 +3027,11 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   border-right: 2px solid #d8c2a4;
   display: table;
   float: left;
-  height: 343px;
-  width: 422.6px;
+  height: 344px;
 }
 
 .modal .event-expenses .panel-wrapper .event-list li > div {
+  padding: 10px;
   display: table-cell;
   font-weight: bold;
   height: 100%;
@@ -3134,7 +3099,8 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   height: 160px;
   margin: 5px auto 0;
   position: relative;
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
   z-index: 1;
 }
 
@@ -3144,6 +3110,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   right: 0;
   bottom: 0;
   left: 0;
+  max-width: 100%;
   margin: auto;
   z-index: 1;
 }
@@ -3188,10 +3155,11 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 }
 
 .modal .event-expenses .panel-wrapper .event-list.renovation li > div .image {
-  height: 160px;
   margin: 5px auto 0;
   position: relative;
-  width: 350px;
+  width: 95%;
+  height: 160px;
+  max-width: 350px;
   z-index: 1;
 }
 
@@ -3203,6 +3171,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   left: 0;
   margin: auto;
   z-index: 1;
+  width: 100%;
 }
 
 .modal .event-expenses .panel-wrapper .event-list.renovation li > div .price {
@@ -3261,13 +3230,12 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 }
 
 .modal .event-expenses .panel-wrapper .entry-form > div.age {
-  border-right: 1px solid #a4643e;
+  border-right: 2px solid #a4643e;
   font-weight: bold;
   text-align: right;
 }
 
 .modal .event-expenses .panel-wrapper .entry-form > div.budget {
-  border-left: 1px solid #a4643e;
   font-weight: bold;
 }
 
@@ -3286,10 +3254,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 .modal .cost-monthly .table th {
   border-top: none;
   border-left: none;
-/* 20160517_WebLifePlan対応_結合-020_start */
-/* width: 790px; */
-  width: 708px;
-/* 20160517_WebLifePlan対応_結合-020_endt */
+  width: 45%;
   font-weight: bold;
 }
 
@@ -3316,7 +3281,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 }
 
 .modal .pension-entitlements .table table th {
-  border-right: 2px solid #e5d3b1;
+  border-right: 2px solid #bebebe;
   width: 390px;
   font-weight: bold;
 }
@@ -3343,7 +3308,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 
 .modal .pension-entitlements .table table .total th,
 .modal .pension-entitlements .table table .total td {
-  background: #fff5dd;
+  background: #dbf0fa;
   font-weight: bold;
 }
 
@@ -3524,16 +3489,15 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper {
-  display: table;
-  width: 1820px;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph {
   display: table-cell;
   overflow: hidden;
-  padding-right: 60px;
   vertical-align: top;
-  width: 1280px;
+  max-width: 1280px;
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-title {
@@ -3551,10 +3515,6 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table {
   width: 100%;
-}
-
-.modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table th {
-  border-right: 2px solid #e5d3b1;
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table .row-title th > div {
@@ -3620,13 +3580,11 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   padding-top: 10px;
   padding-bottom: 40px;
   vertical-align: top;
-  width: 540px;
+  width: 100%;
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-list th {
-  border-right: 2px solid #e5d3b1;
   font-weight: bold;
-  width: 255px;
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-list th > div {

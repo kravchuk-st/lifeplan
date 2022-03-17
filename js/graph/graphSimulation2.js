@@ -76,21 +76,21 @@ LIFEPLAN.graph.GraphSimulation2 = (function () {
 			var y = y500 * i + graphMarginTop;
 
 			context.beginPath();
-			context.strokeStyle = self.brown;
+			context.strokeStyle = self.black;
 			context.lineWidth = 1;
 			context.moveTo(140, y);
 			context.lineTo(canvaSize, y);
 			context.stroke();
 
 			context.beginPath();
-			context.fillStyle = self.brown;
+			context.fillStyle = self.black;
 			context = self.setFont(context, 24);
 			context.fillText(String(labelY).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,'), 110, y);
 			labelY = labelY - (heightByYear / 10000 / 5);
 			
 			if (i === 4) {
 				context.beginPath();
-				context.fillStyle = self.brown;
+				context.fillStyle = self.black;
 				context = self.setFont(context, 24);
 				context.fillText(String(labelY).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,'), 110, y500 * (i + 1) + graphMarginTop);
 				labelY = 0;
@@ -99,7 +99,7 @@ LIFEPLAN.graph.GraphSimulation2 = (function () {
 		
 		// ラベル表示
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont(context, 30);
 		context.fillText("（万円）", 150, 17);
 
@@ -228,7 +228,7 @@ LIFEPLAN.graph.GraphSimulation2 = (function () {
 
 		// 枠線を引く
 		context.beginPath();
-		context.strokeStyle = self.brown;
+		context.strokeStyle = self.black;
 		context.lineWidth = 5;
 		context.moveTo(140, graphMarginTop);
 		context.lineTo(140, 562);
@@ -244,7 +244,7 @@ LIFEPLAN.graph.GraphSimulation2 = (function () {
 		context.fillRect(440, inGraphLabelY, 20, 20);
 
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont2(context, 24);
 		context.fillText("収入保障保険", 464, inGraphLabelTY);
 
@@ -254,7 +254,7 @@ LIFEPLAN.graph.GraphSimulation2 = (function () {
 		context.fillRect(650, inGraphLabelY, 20, 20);
 
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont2(context, 24);
 		context.fillText("養老・学資保険", 674, inGraphLabelTY);
 
@@ -264,7 +264,7 @@ LIFEPLAN.graph.GraphSimulation2 = (function () {
 		context.fillRect(890, inGraphLabelY, 20, 20);
 
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont2(context, 24);
 		context.fillText("終身保険", 914, inGraphLabelTY);
 
@@ -274,7 +274,7 @@ LIFEPLAN.graph.GraphSimulation2 = (function () {
 		context.fillRect(1070, inGraphLabelY, 20, 20);
 
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont2(context, 24);
 		context.fillText("定期保険・特約", 1094, inGraphLabelTY);
 
@@ -287,7 +287,7 @@ LIFEPLAN.graph.GraphSimulation2 = (function () {
 		context.stroke();
 
 		context.beginPath();
-		context.fillStyle = self.brown;
+		context.fillStyle = self.black;
 		context = self.setFont2(context, 24);
 		context.fillText("必要保障額", 1400, inGraphLabelTY);
 

@@ -16,6 +16,7 @@ LIFEPLAN.graph.Graph = (function () {
 
 	// 色設定
 	p.brown = 'rgba(165,114,78,1)';
+  p.black = 'rgb(0,0,0)';
 	p.blueHonnin = 'rgb(102,186,211)';
 	p.redHaigusya = 'rgb(238,156,153)';
 	p.yellow = 'rgb(256,225, 76)';
@@ -23,7 +24,7 @@ LIFEPLAN.graph.Graph = (function () {
 	p.white = 'rgb(255,255,255)';
 	p.redNenkanShushi = 'rgb(210,83,77)';
 	p.blueKinyuShisanZandaka = 'rgb(128,165,217)';
-	p.cream = 'rgb(251,243,222)';
+	p.cream = 'rgb(255,255,255)';
 	p.purple = 'rgb(175,134,211)';
 	p.red = 'rgb(183,38,25)';
 	p.blue = 'rgb(82,179,233)';
