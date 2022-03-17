@@ -979,7 +979,7 @@
 
                   </div>
                   <div class="graph-table table">
-                    <table class="table-bordered table-bordered">
+                    <table class="table-bordered">
                       <tr class="row-title">
                         <th class="target">
                         </th>
@@ -1065,71 +1065,81 @@
                 <div class="graph-title">老後資金不足額
                 </div>
                 <div class="funds-list table">
-                  <table class="table-bordered">
-                    <tr>
-                      <th>
-                        <div>
-                          65歳時<br/>金融資産残高
-                        </div>
-                      </th>
-                      <th>
-                        <div>
-                          70歳時<br/>金融資産残高
-                        </div>
-                      </th>
-                      <th>
-                        <div>
-                          75歳時<br/>金融資産残高
-                        </div>
-                      </th>
-                      <th>
-                        <div>
-                          80歳時<br/>金融資産残高
-                        </div>
-                      </th>
-                      <th>
-                        <div>
-                          85歳時<br/>金融資産残高
-                        </div>
-                      </th>
-                      <th>
-                        <div>
-                          90歳時<br/>金融資産残高
-                        </div>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="right">
-                          <span data-bind="html: diag_nenkin_txt_tai_zandaka"></span>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="right">
-                          <span data-bind="html: diag_nenkin_txt_sm_taisyoku"></span>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="right">
-                          <span data-bind="html: diag_nenkin_txt_basic_income"></span>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="right">
-                          <span data-bind="html: diag_nenkin_txt_sm_event"></span>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="right">
-                          <span data-bind="html: diag_nenkin_txt_sm_loan"></span>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="right">
-                          <span data-bind="html: diag_nenkin_txt_total_living"></span>
-                        </div>
-                      </td>
-                    </tr>
+                  <table class="" style="min-height: 260px;">
+                    <tbody>
+                      <tr>
+                        <th>
+                          <div>
+                            65歳時<br/>金融資産残高
+                          </div>
+                        </th>
+                        <td>
+                          <div class="right">
+                            <span data-bind="html: diag_nenkin_txt_tai_zandaka"></span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <div>
+                            70歳時<br/>金融資産残高
+                          </div>
+                        </th>
+                        <td>
+                          <div class="right">
+                            <span data-bind="html: diag_nenkin_txt_sm_taisyoku"></span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="required">
+                          <div>
+                            75歳時<br/>金融資産残高
+                          </div>
+                        </th>
+                        <td>
+                          <div class="right">
+                            <span data-bind="html: diag_nenkin_txt_basic_income"></span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="required">
+                          <div>
+                            80歳時<br/>金融資産残高
+                          </div>
+                        </th>
+                        <td>
+                          <div class="right">
+                            <span data-bind="html: diag_nenkin_txt_sm_event"></span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="required">
+                          <div>
+                            85歳時<br/>金融資産残高
+                          </div>
+                        </th>
+                        <td>
+                          <div class="right">
+                            <span data-bind="html: diag_nenkin_txt_sm_loan"></span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="required">
+                          <div>
+                            90歳時<br/>金融資産残高
+                          </div>
+                        </th>
+                        <td>
+                          <div class="right">
+                            <span data-bind="html: diag_nenkin_txt_total_living"></span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                   <p class="attention">マイナスの数値が不足金額となります。</p>
                 </div>

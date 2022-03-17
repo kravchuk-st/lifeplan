@@ -3343,15 +3343,15 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   border-left: 2px solid #e5d3b1;
   overflow: hidden;
   vertical-align: top;
-  width: 25%;
+  /* width: 25%; */
 }
 
 .modal .child-setting .table.select table td .title {
-  background: #fff5dd;
+  text-align: center;
   font-weight: bold;
   height: 58px;
   line-height: 58px;
-  padding: 0 28px;
+  padding: 0 7px;
 }
 
 .modal .child-setting .table.select table td .form {
@@ -3359,8 +3359,8 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 }
 
 .modal .child-setting .table.select table td .form .radiolist {
-  margin: 20px auto;
-  width: 380px;
+  margin: 15px auto;
+  /* width: 380px; */
 }
 
 .modal .child-setting .table.select table td .form .radiolist label span {
@@ -3484,8 +3484,8 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 }
 
 .modal .retirement-funds .modal-content {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper {
@@ -3580,7 +3580,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   padding-top: 10px;
   padding-bottom: 40px;
   vertical-align: top;
-  width: 100%;
+  width: 100vw;
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-list th {

@@ -35,6 +35,11 @@ h1{
   margin: 0;
 }
 
+.table>:not(caption)>*>* {
+  padding: 0;
+  border: none;
+}
+
 .nav-tabs,
 .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
@@ -280,12 +285,14 @@ main .wrapper-sm .content-panel.grid{
 }
 
 .table table th {
+  padding: 0;
   border-bottom: 2px solid #bebebe;
   border-left: 2px solid #bebebe;
   border-top: 2px solid #bebebe;
 }
 
 .table table td {
+  padding: 0;
   border-bottom: 2px solid #bebebe;
   border-right: 2px solid #bebebe;
   border-top: 2px solid #bebebe;
@@ -322,7 +329,7 @@ main .wrapper-sm .content-panel.grid{
 
 .education-plane .total-amount,
 .modal .cost-monthly .table {
-  border: 2px solid #bebebe;
+  border: none;
   margin-top: 0;
 }
 
@@ -385,6 +392,10 @@ a.button-modal, span.button-modal, button.button-modal, input.button-modal {
 .modal select.pulldown,
 .modal .table table th > div, .modal .table table td > div{
   font-size: 3.8rem;
+}
+
+.modal .table table{
+  border: 2px solid #bebebe;
 }
 
 .radiolist label > span {
@@ -647,6 +658,7 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
 
 .modal select.pulldown {
   width: max-content;
+  background-color: white;
 }
 
 
@@ -1172,6 +1184,39 @@ footer p:first-child {
     font-size: 2.2rem;
   }
 
+  .table table th {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .table table td{
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .table table{
+    border: 2px solid #bebebe;
+  }
+
+  .modal .cost-monthly .table th {
+    width: 100%;
+  }
+
+  .modal .table tr:not(:first-child) {
+    border-top: 2px solid #bebebe;
+  }
+
+  .modal .table table th{
+    border-top: none;
+    border-right: none;
+  }
+
+  .modal .table table td{
+    border-left: none;
+  }
+
   .wrapper-sm {
     padding: 0 15px;
   }
@@ -1282,10 +1327,6 @@ footer p:first-child {
     width: 100%;
   }
 
-  .modal .cost-monthly .table th {
-    width: 100%;
-  }
-
   .table table th {
     width: 100%;
   }
@@ -1301,20 +1342,6 @@ footer p:first-child {
   .table>:not(caption)>*>*{
     padding: 0;
     border: none;
-  }
-
-  .table table th {
-    border-bottom: none;
-    border-right: 2px solid #bebebe;
-  }
-
-  .table table td{
-    border-bottom: none;
-    border-left: 2px solid #bebebe;
-  }
-
-  .table table{
-    border-bottom: 2px solid #bebebe;
   }
 
   .tab-content[data-tabcontent='tab2'] .table table{
