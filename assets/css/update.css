@@ -996,6 +996,10 @@ footer p:first-child {
     font-size: 16px;
   }
 
+  .visual-btn{
+    display: none;
+  }
+
   .navigation .content-frame .grid .column a,
   .navigation .content-frame .grid .column > span {
     font-size: 2.5rem;
@@ -1118,10 +1122,6 @@ footer p:first-child {
 
   .total-top .main-title {
     height: 200px;
-  }
-
-  .visual-btn{
-    display: none;
   }
 
   .wrapper:not(.total-top) .header__right {
@@ -1259,6 +1259,14 @@ footer p:first-child {
 }
 
 @media (max-width: 576px) {
+  .header__left {
+    column-gap: 12px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
   .education-plane .total-amount {
     padding: 0 5px;
   }
@@ -1268,6 +1276,10 @@ footer p:first-child {
   .education-plane .total-amount .label,
   .education-plane .total-amount .amount {
     font-size: 24px;
+  }
+
+  .top .content-panel .taget-visual{
+    width: 100%;
   }
 
   .modal .cost-monthly .table th {
@@ -1281,8 +1293,6 @@ footer p:first-child {
   .column.overflow {
     overflow: auto;
   }
-
-
 
   .table.scroll {
     overflow: auto;
@@ -1349,8 +1359,9 @@ footer p:first-child {
     border-left: none
   }
 
+  .modal input.textarea,
   .modal select.pulldown {
-    width: 100%;
+    width: 85%;
   }
 
   a.button-modal, span.button-modal, button.button-modal, input.button-modal {
