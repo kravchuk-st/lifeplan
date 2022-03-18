@@ -3365,7 +3365,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 
 .modal .child-setting .table.select table td .form .radiolist label span {
   text-align: center;
-  width: 190px;
+  /* width: 190px; */
 }
 
 .modal .child-setting .table.select table td .form .radiolist.label-3 {
@@ -3450,7 +3450,8 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   position: absolute;
   right: 0;
   top: 0;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .modal .child-setting .total-expenses .total-info .label {
@@ -3480,7 +3481,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   background-image: url(../img/img_funds_title.png);
   background-position: 10px center;
   background-repeat: no-repeat;
-  padding-left: 140px;
+  /* padding-left: 140px; */
 }
 
 .modal .retirement-funds .modal-content {

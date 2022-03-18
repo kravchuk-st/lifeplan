@@ -661,6 +661,12 @@ a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-ic
   background-color: white;
 }
 
+.modal .child-setting .birthday {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
 
 footer {
   font-size: 11px;
