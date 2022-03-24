@@ -186,13 +186,12 @@ input.button-menu {
   justify-content: flex-start;
 }
 
-.diagnosis .header {
-  background-color: #328cbd;
-  border-bottom: 8px solid #1e5472;
-}
-
 .diagnosis .header .header__right{
   min-width: 160px;
+}
+
+.fs-sm{
+  font-size: 18px;
 }
 
 .offcanvas-body {
@@ -757,7 +756,36 @@ footer p:first-child {
   width: 50%;
 }
 
+.graph-content canvas {
+  width: 100%;
+}
+
+a.header__title {
+  font-size: 16px;
+}
+
+.modal-content,
+.modal .modal-frame .modal-content-wide{
+  background-color: #fff;
+}
+
 @media (min-width: 769px) {
+  .header__center a.header__title{
+    display: none;
+  }
+
+  .blocklist {
+    padding-right: 15px;
+  }
+
+  .tab-simulation {
+    width: calc(50% - 55px) !important;
+  }
+
+  .protection {
+    padding-left: 15px;
+  }
+
   .graph-content {
     padding-left: 15px;
   }
@@ -788,6 +816,10 @@ footer p:first-child {
 
   .main-navigation{
     display: none;
+  }
+
+  .modal .child-setting .table.select table td {
+    width: 25%;
   }
 }
 
@@ -841,7 +873,7 @@ footer p:first-child {
 
 @media (max-width: 1279px) {
   .diagnosis .header{
-    border-color: transparent;
+    border-bottom: none !important;
   }
 
   .main-navigation .navigation-links{
@@ -875,9 +907,8 @@ footer p:first-child {
   }
 
   .top .content-panel .taget-visual{
-    width: 850px;
-    margin: auto;
     padding-top: 0;
+    width: 100%;
   }
 
   .taget-visual{
@@ -1002,25 +1033,18 @@ footer p:first-child {
     grid-column: 1 span;
   }
 
-  .top .content-panel .taget-visual{
-    width: 450px;
-  }
-
-  .taget-visual{
-    flex-direction: column;
-  }
-
   .question-btn {
     font-size: 16px;
   }
 
-  .visual-btn{
-    display: none;
-  }
 
   .navigation .content-frame .grid .column a,
   .navigation .content-frame .grid .column > span {
     font-size: 2.5rem;
+  }
+
+  .modal .child-setting .total-expenses{
+    padding-right: 0;
   }
 }
 
@@ -1038,22 +1062,152 @@ footer p:first-child {
   }
 }
 
-@media (min-width: 768px) {
-  .blocklist {
-    padding-right: 15px;
-  }
-
-  .tab-simulation {
-    width: calc(50% - 55px) !important;
-  }
-
-  .protection {
-    padding-left: 15px;
-  }
-}
-
-
 @media (max-width: 768px) {
+  a.button-modal, span.button-modal, button.button-modal, input.button-modal {
+    font-size: 15px;
+    line-height: 1;
+    min-width: 0;
+    height: auto;
+    padding: 15px 25px;
+  }
+
+  .taget-visual {
+    display: block;
+  }
+
+  .wrapper.single .top .content-panel .taget-visual .visual .generation .name {
+    width: 100%;
+  }
+  
+  .top .content-panel .taget-visual .visual::before {
+    height: 150px;
+    width: 150px;
+    margin: 0;
+    top: 0;
+}
+  .wrapper.retirement .top .content-panel .taget-visual .visual .generation .name {
+    width: auto;
+  }
+
+  .visual .generation {
+    padding-left: 180px;
+    width: 100%;
+  }
+
+  .visual .generation span {
+    font-size: 28px;
+  }
+
+  .top .content-panel .taget-visual .visual .generation .name {
+    display: inline;
+    width: auto;
+    text-align: left;
+    margin: 0;
+  }
+  .top .content-panel .taget-visual .visual .generation .name b {
+    display: inline;
+  }
+
+  .wrapper.single .top .content-panel .taget-visual .visual::after {
+    background-image: url(../img/single/img_visual_illust.png);
+    background-size: contain;
+  }
+
+  .top .content-panel .taget-visual .visual::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+
+  .top .content-panel .taget-visual .visual {
+    padding: 0;
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+
+  .top .content-panel .taget-visual .visual .generation {
+    text-align: left;
+    line-height: 1;
+  }
+  .header__center h1.header__title{
+    display: none;
+  }
+
+  .fs-sm{
+    font-size: 14px;
+  }
+
+  .modal .modal-frame .modal-title {
+    font-size: 15px;
+    height: auto;
+    line-height: 45px;
+    padding: 0 50px 0 20px;
+  }
+
+  .modal .modal-frame .button-modal-close {
+    right: -3px;
+    top: -3px;
+  }
+
+  .modal .modal-frame .modal-content {
+    padding: 20px 0;
+  }
+
+  .modal .button-wrapper {
+    padding: 0 0 20px;
+  }
+
+  .modal .setting .table th {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #bebebe;
+  }
+
+  .modal .setting .table td {
+    width: 100%;
+  }
+
+  .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-title {
+    font-size: 20px;
+    height: auto;
+    line-height: 1.3;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  a.button-modal-close, span.button-modal-close, button.button-modal-close, input.button-modal-close {
+    width: 45px;
+    height: 45px;
+  }
+
+  a.button-modal-close::before, span.button-modal-close::before, button.button-modal-close::before, input.button-modal-close::before {
+    height: 20px;
+    width: 20px;
+  }
+
+  .font-xlarge {
+    font-size: 20px;
+  }
+
+  .st_message{
+    font-size: 16px;
+  }
+
+  .modal .table table td > div.right{
+    text-align: left;
+  }
+
+  .visual-btn {
+    display: none;
+  }
+  
   .diagnosis .diagnosis-plan .funds-wrapper .funds-total {
     font-size: 20px;
   }
@@ -1163,18 +1317,32 @@ footer p:first-child {
   }
 
   input.textarea {
-    font-size: 3.8rem;
-    height: 60px;
-    line-height: 60px;
+    font-size: 16px;
+    height: 50px;
+    line-height: 45px;
+  }
+
+  .dot{
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 0.4 !important;
   }
 
   .navigation .content-frame .grid .column a,
-  .navigation .content-frame .grid .column > span {
+  .navigation .content-frame .grid .column span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     font-size: 2rem;
+    line-height: 1.3;
   }
 
   .tab .tab-button-wrap .tab-button {
     font-size: 20px;
+  }
+
+  .table.scroll {
+    overflow: auto;
   }
 
   .table table th > div,
@@ -1187,7 +1355,11 @@ footer p:first-child {
   .modal input.textarea,
   .modal select.pulldown,
   .modal .table table th > div, .modal .table table td > div{
-    font-size: 2.2rem;
+    font-size: 16px;
+  }
+
+  .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-list th > div {
+    padding: 10px 15px;
   }
 
   .table table th {
@@ -1221,6 +1393,10 @@ footer p:first-child {
 
   .modal .table table td{
     border-left: none;
+  }
+
+  select.pulldown {
+    border-radius: 12px;
   }
 
   .wrapper-sm {
@@ -1287,6 +1463,10 @@ footer p:first-child {
     margin-bottom: 60px;
   }
 
+  .diagnosis main {
+    margin-bottom: 20px;
+  }
+
   .diagnosis .modal .event-expenses .panel-wrapper .entry-form{
     display: flex;
     flex-direction: column;
@@ -1303,10 +1483,128 @@ footer p:first-child {
     height: auto;
     text-align: center;
   }
+
+  .modal .pension-entitlements .table table .total td,
+  .modal .pension-entitlements .table table .entitlements td,
+  .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table th:not(:last-child),
+  .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table td:not(:last-child){
+    border-right: 2px solid #bebebe;
+  }
+
+  .modal .pension-entitlements .table table .entitlements th,
+  .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table .row-title th > div{
+    min-width: 130px;
+    font-size: 2.2rem;
+    height: auto;
+    line-height: 1.3;
+  }
+
+  .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table .row-data-1 td > div,
+  .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table .row-data-2 td > div{
+    padding: 7px 15px;
+    font-size: 2.2rem;
+  }
+
+  .modal .pension-entitlements .table table .total td > div,
+  .modal .pension-entitlements .table table .total th > div {
+    font-size: 3rem;
+    line-height: 1.3;
+  }
+
+  .modal .modal-content .modal-panel .table.scroll table td,
+  .modal .modal-content .modal-panel .table.scroll table th{
+    width: auto;
+    min-width: 150px;
+    border-right: 2px solid #bebebe;
+  }
+
+  .modal .child-setting .table.result .row-annual-sum td {
+    border-right: 2px solid #bebebe;
+  }
+
+  .modal .child-setting .table.result .row-annual-sum td > div {
+    font-size: 2rem;
+  }
+
+  .modal .child-setting .table.result .row-annual-sum th > div {
+    font-size: 2.4rem;
+  }
+
+  .modal .child-setting .total-expenses {
+    min-height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .modal .child-setting .table.select table td .form {
+    padding: 0 10px;
+  }
+
+  .modal .child-setting .table.select table td .form .radiolist.label-3 label span {
+    width: 130px;
+  }
+
+  .modal .child-setting .table.select table td .form .radiolist.label-3 {
+    width: 100%;
+  }
+
+  .modal .child-setting .total-expenses .total-info{
+    height: auto;
+    flex-direction: column;
+  }
+
+  .modal .child-setting .total-expenses .total-info .label{
+    width: 100%;
+    font-size: 3rem;
+    height: auto;
+    line-height: 70px;
+    border-bottom: 2px solid #bebebe;
+  }
+
+  .modal .child-setting .total-expenses .total-info .expenses{
+    font-size: 3rem;
+    height: auto;
+    line-height: 70px;
+  }
+
+  .radiolist label > span{
+    font-size: 15px;
+    height: 50px;
+    line-height: 45px;
+    padding: 0 20px;
+  }
+
+  .modal select.pulldown{
+    height: auto;
+    line-height: 45px;
+    padding: 0 90px 0 20px;
+  }
+
+  .modal .child-setting .radiolist label > span {
+    font-size: 15px;
+    height: auto;
+    line-height: 45px;
+    padding: 0 20px;
+  }
+
+  .modal .child-setting .table.select table td .form.kindergarten .turn{
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left;
+  }
 }
 
 .overflow {
   width: 100%;
+}
+
+.education__th {
+  width: 10%;
+}
+
+.education-plane .content-panel {
+  max-width: 1530px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 576px) {
@@ -1341,10 +1639,6 @@ footer p:first-child {
     overflow: auto;
   }
 
-  .table.scroll {
-    overflow: auto;
-  }
-
   .table>:not(caption)>*>*{
     padding: 0;
     border: none;
@@ -1374,20 +1668,6 @@ footer p:first-child {
     border: none;
   }
 
-  .modal .table table td > div.right{
-    text-align: left;
-  }
-
-  .modal .setting .table th {
-    width: 100%;
-    border-right: none;
-    border-bottom: 2px solid #bebebe;
-  }
-
-  .modal .setting .table td {
-    width: 100%;
-  }
-
   .modal .setting .table td{
     border-left: none
   }
@@ -1397,14 +1677,8 @@ footer p:first-child {
     width: 85%;
   }
 
-  a.button-modal, span.button-modal, button.button-modal, input.button-modal {
-    font-size: 3.0rem;
-    height: 85px;
-    line-height: 85px;
-}
-
   .navigation .content-frame .grid .column a,
-  .navigation .content-frame .grid .column > span {
+  .navigation .content-frame .grid .column span {
     font-size: 15px;
   }
 
@@ -1420,7 +1694,6 @@ footer p:first-child {
   }
 
   .question-btn {
-    font-size: 12px;
     margin-right: 10px;
     padding: 0 5px;
     column-gap: 5px;
@@ -1428,5 +1701,9 @@ footer p:first-child {
 
   .diagnosis input.textarea.middle {
     width: 100%;
+  }
+
+  .modal .child-setting .table.select table td .form .radiolist.label-3 label span {
+    width: 100px;
   }
 }

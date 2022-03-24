@@ -1225,6 +1225,10 @@ window.onload = function () {
 		// 設定
 		this.id_company = lp_setupinfo[0].id_company;
 		// サイドメニュー表示制御 END
+
+		this.st_message1 = lp_setupinfo[1].st_message;
+		this.st_message2 = lp_setupinfo[2].st_message;
+		
 	};
 
 	var viewModel = new ViewModel();
@@ -1255,26 +1259,26 @@ window.onload = function () {
 		m_modelClass = LIFEPLAN.module.getModelClass(id_modelcase);
 
 		if (id_modelcase === 0) {
-			setting_tab1_basic = '<span href="#">基本情報</span>';
-			setting_tab2_job = '<span href="#">職業・年収</span>';
-			setting_tab3_house = '<a href="#" class="current">住宅プラン</a>';
-			setting_tab4_education = '<span href="#">教育プラン</span>';
-			setting_tab5_insurance = '<span href="#">加入保険</span>';
+			setting_tab1_basic = '<span href="#"><span>基本</span><span>情報</span></span>';
+			setting_tab2_job = '<span href="#"><span>職業</span><span class="dot">・</span><span>年収</span></span>';
+			setting_tab3_house = '<a href="#" class="current"><span>住宅</span><span>プラン</span></a>';
+			setting_tab4_education = '<span href="#"><span>教育</span><span>プラン</span></span>';
+			setting_tab5_insurance = '<span href="#"><span>加入</span><span>保険</span></span>';
 			simulation1 = '';
 		} else {
 			if (MC.id_lives === 1 || MC.id_lives_yotei === 1) {
-				setting_tab1_basic = '<a href="#">基本情報</a>';
-				setting_tab2_job = '<a href="#">職業・年収</a>';
-				setting_tab3_house = '<a href="#" class="current">住宅プラン</a>';
-				setting_tab4_education = '<a href="#">教育プラン</a>';
-				setting_tab5_insurance = '<a href="#">加入保険</a>';
+				setting_tab1_basic = '<a href="#"><span>基本</span><span>情報</span></a>';
+				setting_tab2_job = '<a href="#"><span>職業</span><span class="dot">・</span><span>年収</span></a>';
+				setting_tab3_house = '<a href="#" class="current"><span>住宅</span><span>プラン</span></a>';
+				setting_tab4_education = '<a href="#"><span>教育</span><span>プラン</span></a>';
+				setting_tab5_insurance = '<a href="#"><span>加入</span><span>保険</span></a>';
 				simulation1 = '<a class="button-diagnosis"></a>';
 			} else {
-				setting_tab1_basic = '<a href="#">基本情報</a>';
-				setting_tab2_job = '<a href="#">職業・年収</a>';
-				setting_tab3_house = '<span href="#">住宅プラン</span>';
-				setting_tab4_education = '<a href="#">教育プラン</a>';
-				setting_tab5_insurance = '<a href="#">加入保険</a>';
+				setting_tab1_basic = '<a href="#"><span>基本</span><span>情報</span></a>';
+				setting_tab2_job = '<a href="#"><span>職業</span><span class="dot">・</span><span>年収</span></a>';
+				setting_tab3_house = '<span href="#"><span>住宅</span><span>プラン</span></span>';
+				setting_tab4_education = '<a href="#"><span>教育</span><span>プラン</span></a>';
+				setting_tab5_insurance = '<a href="#"><span>加入</span><span>保険</span></a>';
 				simulation1 = '<a class="button-diagnosis"></a>';
 			}
 		}

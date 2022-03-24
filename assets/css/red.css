@@ -1,39 +1,39 @@
 .modal .dynamic::before {
-  background-color: #1e5472;
+  background-color: #A10300;
 }
 
 .total-top .header, .header,
 .burger__line,
 a.button, span.button, button.button, input.button {
-  background: #268cbf;
+  background: #D70400;
 }
 
 .burger__btn.burger__btn_open{
-  background-color: #268cbf;
+  background-color: #A10300;
 }
 
 a.button.is-on, span.button.is-on, button.button.is-on, input.button.is-on,
 a.button-blank.is-on, span.button-blank.is-on, button.button-blank.is-on, input.button-blank.is-on{
-  background: #235471;
+  background: #A10300;
 }
 
 .total-top .menu-lists.owl-carousel .owl-wrapper.owl-item .menu-item .figure::before,
 .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item .figure::before {
-  background: #DAF0FA;
+  background: #FFE7E3;
 }
 
 .top .content-panel .taget-visual .visual::before {
-  background: #dbf0fa;
+  background: #FFE7E3;
 }
 
 .icon{
-  fill: #268cbf;
+  fill: #D70400;
 }
 
 a.button-icon.edit, span.button-icon.edit, button.button-icon.edit, input.button-icon.edit,
 a.button-icon.add, span.button-icon.add, button.button-icon.add, input.button-icon.add,
 a.button-modal-close::before, span.button-modal-close::before, button.button-modal-close::before, input.button-modal-close::before {
-  filter: invert(61%) sepia(32%) saturate(3015%) hue-rotate(172deg) brightness(79%) contrast(83%);
+  filter: invert(14%) sepia(80%) saturate(3751%) hue-rotate(355deg) brightness(82%) contrast(117%);
 }
 
 a.button-icon.is-on,
@@ -41,31 +41,31 @@ span.button-icon.is-on,
 button.button-icon.is-on,
 input.button-icon.is-on,
 a.button-modal-close.is-on::before, span.button-modal-close.is-on::before, button.button-modal-close.is-on::before, input.button-modal-close.is-on::before {
-  filter: invert(25%) sepia(9%) saturate(3649%) hue-rotate(159deg) brightness(97%) contrast(82%);
+  filter: invert(14%) sepia(80%) saturate(3751%) hue-rotate(355deg) brightness(82%) contrast(117%);
 }
 
 a.button-icon.edit.is-on,
 span.button-icon.edit.is-on,
 button.button-icon.edit.is-on,
 input.button-icon.edit.is-on {
-  filter: invert(25%) sepia(9%) saturate(3649%) hue-rotate(159deg) brightness(97%) contrast(82%);
+  filter: invert(14%) sepia(80%) saturate(3751%) hue-rotate(355deg) brightness(82%) contrast(117%);
 }
 
 .question-btn,
 .question-btn:hover{
-  color: #268cbf;
+  color: #A10300;
 }
 
 .main-navigation .question-btn{
-  border-color: #268cbf;
+  border-color: #A10300;
 }
 
 .total-top .menu-lists.owl-carousel .owl-controls .owl-prev, .total-top .menu-lists.owl-carousel .owl-controls .owl-next {
-  background: #268cbf;
+  background: #D70400;
 }
 
 .top .content-panel .taget-info .panel-entry .title::before {
-  background: #dbf0fa;
+  background: #FFE7E3;
 }
 
 .navigation .content-frame .grid .column a.current, .navigation .content-frame .grid .column > span.current,
@@ -74,35 +74,35 @@ input.button-icon.edit.is-on {
 }
 
 .blocklist ul li.settled {
-  background: #f0faff;
+  background: #FFE7E3;
 }
 
 
 .navigation .content-frame .grid .column a.current::before {
-  background: url(../img/svg/blue/header.svg) top center no-repeat;
+  background: url(../img/svg/red/header.svg) top center no-repeat;
   background-size: contain;
 }
 
 .navigation .content-frame .grid .column a.current {
-  background: #235471;
+  background: #A10300;
 }
 
 
 .tab .tab-button-wrap .tab-button.current,
 .modal .modal-frame .modal-title {
-  background: #1e5472;
+  background: #A10300;
 }
 
 .tab .tab-button-wrap {
-  border-bottom: 4px solid #1e5472;
+  border-bottom: 4px solid #A10300;
 }
 
 .table table th {
-  background: #dbf0fa;
+  background: #FFE7E3;
 }
 
 a.button-blank, span.button-blank, button.button-blank, input.button-blank {
-  background: #328cbd;
+  background: #DC2724;
 }
 
 .insurance .protection .title,
@@ -112,101 +112,110 @@ a.button-blank, span.button-blank, button.button-blank, input.button-blank {
 .modal .child-setting .birthday label,
 .modal .child-setting .total-expenses .total-info,
 .modal .child-setting .table.result .row-annual-sum th{
-  background-color: #dbf0fa;
-}
-
-.modal-content,
-.modal .modal-frame .modal-content-wide {
-  background-color: #f0faff;
+  background-color: #FFE7E3;
 }
 
 a.button-modal, span.button-modal, button.button-modal, input.button-modal {
-  border: 1px solid #328cbd;
-  color: #328cbd;
+  border: 1px solid #DC2724;
+  color: #DC2724;
 }
 
 a.button.decide, a.button-modal.decide, span.button-modal.decide, button.button-modal.decide, input.button-modal.decide {
-  background: #328cbd;
+  background: #DC2724;
 }
 
 .radiolist label input[type="radio"]:checked + span{
-  background: #1e5472;
+  background: #A10300;
 }
 
 .radiolist label > span {
-  color: #328cbd;
+  color: #DC2724;
 }
 
 a.button-modal.is-on, span.button-modal.is-on, button.button-modal.is-on, input.button-modal.is-on {
-  background: #dbf0fa;
+  background: #FFE7E3;
 }
 
 a.button.decide.is-on, a.button-modal.decide.is-on, span.button-modal.decide.is-on, button.button-modal.decide.is-on, input.button-modal.decide.is-on{
-  background: #1e5472;
+  background: #A10300;
 }
 
 .total-top .main-title {
-  background: url(../img/update/2x/blue/main.png) no-repeat center center;
+  background: url(../img/update/2x/red/main.png) no-repeat center center;
   background-size: 80% auto;
 }
 
 .nav-pills .nav-link, .nav-pills .show>.nav-link {
-  color: #268CBF;
+  color: #A10300;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  color: #175473;
-  border-bottom: 4px solid #175473;
+  color: #A10300;
+  border-bottom: 4px solid #A10300;
   font-weight: bold;
 }
 
 
 .mobile_nav .figure::before {
-  background: #DAF0FA;
+  background: #FFE7E3;
 }
 
 .diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .title{
-  background-color: #1e5472;
+  background-color: #A10300;
 }
 
 .diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .content .select-info .button-panel-prev.button-panel-prev::before, .diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .content .select-info .button-panel-next.button-panel-prev::before {
-  border-right: 20px solid #328cbd;
+  border-right: 20px solid #DC2724;
 }
 
 .diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .content .select-info .button-panel-prev.button-panel-next::before, .diagnosis .diagnosis-funds .graph-wrapper .graph-condition .condition-panel .content .select-info .button-panel-next.button-panel-next::before{
-  border-left: 20px solid #328cbd;
+  border-left: 20px solid #DC2724;
 }
 
 .is-show-scrollbar::-webkit-scrollbar-thumb {
-  background: #b7d3e1;
+  background: #FFE7E3;
 }
 
 .tab-period a.current {
-  background-color: #1e5472;
+  background-color: #A10300;
 }
 
 .tab-period a:not(.current).is-on{
-  background-color: #3b8cbb;
+  background-color: #D70400;
 }
 
 .diagnosis .header {
-  background-color: #328cbd;
-  border-bottom: 8px solid #1e5472;
+  background-color: #D70400;
+  border-bottom: 8px solid #A10300;
+}
+
+.diagnosis .header .header-navigation .navigation-links a.current {
+  background: #A10300;
+}
+
+select.pulldown {
+  background: url(../img/svg/red/arrow-dawn.svg) no-repeat right top;
+  background-size: contain;
+}
+
+.modal-content,
+.modal .modal-frame .modal-content-wide {
+  background-color: #FFF7F5;
 }
 
 a.button-diagnosis, span.button-diagnosis, button.button-diagnosis, input.button-diagnosis {
-  background: url(../img/svg/blue/simulation.svg) no-repeat center center;
+  background: url(../img/svg/red/simulation.svg) no-repeat center center;
   background-size: contain;
 }
 
 .button-diagnosis-sm {
-  background: url(../img/update/blue/diagnosis-btn.png) center center no-repeat;
+  background: url(../img/update/red/diagnosis-btn.png) center center no-repeat;
   background-size: cover;
 }
 
 @media (max-width: 768px) {
   .total-top .main-title {
-    background-image: url(../img/update/blue/main.png);
+    background-image: url(../img/update/red/main.png);
   }
 
   .tab .caption::before,

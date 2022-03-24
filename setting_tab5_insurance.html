@@ -53,7 +53,7 @@
                 <use xlink:href="./assets/img/svg/house.svg#house"></use>
               </svg>
             </a>
-            <button class="question-btn btn-reset">
+            <button class="question-btn btn-reset" type="button" data-bind="click: Sidemenu.bind($data, '#modal-20')">
               <svg class="icon">
                 <use xlink:href="./assets/img/svg/question-fill.svg#question-btn"></use>
               </svg>
@@ -61,7 +61,8 @@
             </button>
           </div>
           <div class="header__center">
-            <h1 class="header__title fw-bold text-white">ライフ<span class="fs-1 fw-normal">＆</span>マネープラン<span class="fw-light">シミュレーション</span></h1>
+            <h1 class="header__title fw-bold text-white">ライフ<span class="fs-sm fw-normal">＆</span>マネープラン<span class="fw-light">シミュレーション</span></h1>
+            <a href="/" class="header__title fw-bold text-white">ライフ<span class="fs-sm fw-normal">＆</span>マネープラン<span class="fw-light">シミュレーション</span></a>
           </div>
           <div class="header__right">
             <span data-bind="html: simulation1, click: onClick.bind($data, 'goto_simulation', 0)"></span>
@@ -536,7 +537,7 @@
 							</p>
 						</div>
 						<div>
-							<p data-bind="text: st_message">
+							<p class="st_message" data-bind="text: st_message">
 							</p>
 						</div>
 					</div>
@@ -551,7 +552,7 @@
 							</p>
 						</div>
 						<div>
-							<p data-bind="text: st_message">
+							<p class="st_message" data-bind="text: st_message">
 							</p>
 						</div>
 					</div>
@@ -589,6 +590,44 @@
               </div>
               <div class="button-wrapper fixed">
                 <a class="button-modal" onclick="LMPS.closeModal();">戻る</a>
+              </div>
+
+            </div>
+          </div>
+          <a class="button-modal-close" onclick="LMPS.closeModal();">閉じる</a>
+        </div>
+      </div>
+
+      <div id="modal-20" class="modal">
+        <div class="modal-frame setting">
+          <div class="modal-title">
+            使い方
+          </div>
+          <div class="modal-content is-scroll">
+            <div class="modal-panel event-expenses">
+
+              <div class="grid">
+                <div class="col">
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル1</b>
+                    </p>
+                  </div>
+                  <div>
+                    <p class="st_message" data-bind="text: st_message1">
+                    </p>
+                  </div>
+
+                  <div class="font-xlarge">
+                    <p>
+                      <b class="dynamic">タイトル2</b>
+                    </p>
+                  </div>
+                  <div>
+                    <p class="st_message" data-bind="text: st_message2">
+                    </p>
+                  </div>
+                </div>
               </div>
 
             </div>

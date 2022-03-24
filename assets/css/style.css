@@ -3349,18 +3349,16 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 .modal .child-setting .table.select table td .title {
   text-align: center;
   font-weight: bold;
-  height: 58px;
-  line-height: 58px;
-  padding: 0 7px;
+  line-height: 1;
+  padding: 15px 7px;
 }
 
 .modal .child-setting .table.select table td .form {
-  padding: 0 28px;
+  padding: 0 15px;
 }
 
 .modal .child-setting .table.select table td .form .radiolist {
   margin: 15px auto;
-  /* width: 380px; */
 }
 
 .modal .child-setting .table.select table td .form .radiolist label span {
@@ -3423,7 +3421,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 }
 
 .modal .child-setting .table.result .row-annual-sum th > div {
-  font-size: 4rem;
+  font-size: 3.2rem;
 }
 
 .modal .child-setting .table.result .row-annual-sum td {
@@ -3432,7 +3430,7 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 }
 
 .modal .child-setting .table.result .row-annual-sum td > div {
-  font-size: 4rem;
+  font-size: 3.2rem;
 }
 
 .modal .child-setting .total-expenses {
@@ -3506,12 +3504,12 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
   font-weight: bold;
   height: 60px;
   line-height: 60px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-content {
   margin-bottom: 20px;
-  min-height: 440px;
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table {
@@ -3521,9 +3519,9 @@ body.is-touch .total-top .menu-lists.owl-carousel .owl-item.owl-item .menu-item.
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table .row-title th > div {
   font-size: 2.8rem;
   font-weight: bold;
-  height: 45px;
+  /* height: 45px; */
   line-height: 45px;
-  padding: 0;
+  padding: 7px 15px;
 }
 
 .modal .retirement-funds .modal-content .modal-panel .funds-wrapper .funds-graph .graph-table .row-title th.target {

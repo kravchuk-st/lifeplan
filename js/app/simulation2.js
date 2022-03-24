@@ -795,6 +795,9 @@ window.onload = function () {
 		this.id_company = lp_setupinfo[0].id_company;
 		// サイドメニュー表示制御 END
 
+		this.st_message1 = lp_setupinfo[1].st_message;
+		this.st_message2 = lp_setupinfo[2].st_message;
+
 	};
 
 	var viewModel = new ViewModel();

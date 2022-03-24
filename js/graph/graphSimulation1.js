@@ -394,10 +394,18 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 
 	// 診断結果ボタン
 	var buttonDiagnosis = function (x, y, width, height, ctx, canvas) {
+    /* 円 #1 */
+    var offset = 0;
+    var clientWidth = document.body.clientWidth;
+    if (document.body.clientWidth < 768) {
+      offset = clientWidth - 60;
+    } else {
+      offset = clientWidth - 340;
+    }
 
-		/* 円 #1 */
-    // TODO fix link position
-		ctx.beginPath();
+    offset = offset - offset * 0.25;
+
+    ctx.beginPath();
 		ctx.globalAlpha = 0.3;
 		ctx.fillStyle = self.blue;
 		ctx.arc(x, y, 80, 0, Math.PI * 2, false);
@@ -417,9 +425,8 @@ LIFEPLAN.graph.GraphSimulation1 = (function () {
 			var mouseX = e.clientX * zoomer - rect.left;
 			var mouseY = e.clientY * zoomer - rect.top;
 
-			if (x - width < mouseX && mouseX < x + width) {
-				if (y - height < mouseY && mouseY < y + height) {
-					// 診断結果画面の表示
+      if (mouseX > offset && mouseX < offset + width) {
+				if (mouseY > 5 && mouseY < y + height) {
 					LMPS.openModal('#modal-1');
 				}
 			}
